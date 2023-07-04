@@ -1,0 +1,1 @@
+let autoWin = openWindow(300, 225, 'Get Platinome+', false, 'https://cdn.jsdelivr.net/gh/TogiFerretFerret/yahhh/plp.png'); fetch("https://raw.githubusercontent.com/TogiFerretFerret/yahhh/main/gpp.html")   .then((response) => response.text())   .then((text) => {     autoWin.innerHTML=text;   })

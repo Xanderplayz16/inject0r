@@ -41,5 +41,15 @@ check all that apply:
 
 ``` DATE HERE YYYY-MM-DD ```
 
+#### Are bookmarklets blocked
+run this code as a bookmark (same as inject0r), and put the output below
+``` javascript:alert('hello world') ```
+##### output:
+[ ] Nothing
 
-# WE DO NOT CHECK GITHUB THAT OFTEN SO PLEASE JOIN DISSCORD
+[ ] alerts "hello world"
+
+#### Is Inspect Element (dev tools) blocked?
+``` YES OR NO ```
+
+# WE DO NOT CHECK GITHUB THAT OFTEN, SO PLEASE JOIN DISSCORD

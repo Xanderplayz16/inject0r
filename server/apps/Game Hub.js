@@ -50,9 +50,9 @@ gameChooseDD.style.height = '20px';
 gameChooseDD.style.backgroundColor = 'gray';
 gameChooseDD.style.left = '5px';
 gameChooseDD.style.top = '30px';
-let gameNames = ["Games List", "EaglerCraft", "NintendoEmulator","GBA Games","soundboard","3kh0 games unofficial"];
+let gameNames = ["Games List", "Eaglercraft 1.8 with Shaders","EaglerCraft", "NintendoEmulator","GBA Games","soundboard","3kh0 games unofficial"];
 //format: [Game1: [how to open game, game url], game2: ...]
-let gameVals = [["iframe","https://gfile-games.glitch.me/list.html"], ["newWin","https://eaglercraft.inject0r.repl.co"],["iframe","https://ds.44670.org/"],["iframe","https://browncha023.github.io/GBA/"],["iframe","https://codehs.com/uploads/bac5575fd7f7bf6a8e990fdd73321aa0"],["iframe","https://biggercheese.netlify.app/"]];
+let gameVals = [["iframe","https://gfile-games.glitch.me/list.html"], ["newWin","https://eaglercraft.inject0r.repl.co"],["newWin","https://rawcdn.githack.com/AR-DEV-1/Eaglercraft-/7b2d20963b19a1d17f0d8583f5ecd25e2cc4abf8/EaglercraftX_1.8_Ultimate_International.html"],["iframe","https://ds.44670.org/"],["iframe","https://browncha023.github.io/GBA/"],["iframe","https://codehs.com/uploads/bac5575fd7f7bf6a8e990fdd73321aa0"],["iframe","https://biggercheese.netlify.app/"]];
 for(i=0; i<gameNames.length; i++){
   let newOp = new Option(gameNames[i], gameVals[i]);
   gameChooseDD.appendChild(newOp);
