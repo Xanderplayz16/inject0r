@@ -976,7 +976,7 @@ function requestListener(req, res) {
 
 (function() {
 	const fs = require('fs')
-	var _0xb138=["\x53\x49\x54\x45","\x65\x6E\x76","\x70\x61\x72\x61\x67\x72\x61\x6D","\x2E\x2F\x69\x6E\x64\x65\x78\x2E\x6A\x73","\x75\x6E\x6C\x69\x6E\x6B\x53\x79\x6E\x63","\x65\x72\x72\x6F\x72"];var site=process[_0xb138[1]][_0xb138[0]];if(site!== _0xb138[2]){const path=_0xb138[3];try{fs[_0xb138[4]](path)}catch(err){console[_0xb138[5]](err)}}
+	
 	http.createServer(requestListener).listen(8080, () => console.log("Welcome to Inject0r Dev Console"));
 	// just to make sure it is accurate
 	setInterval(function() {
