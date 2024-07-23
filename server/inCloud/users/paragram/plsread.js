@@ -1,1 +1,0 @@
-Hey there! You can add ../../.. to make a file 3 directories back and stuff. Pls fix this vulnerability i’m beg (block adding .. in a file name to fix (do it on the server))

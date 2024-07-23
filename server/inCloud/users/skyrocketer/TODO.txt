@@ -1,4 +1,0 @@
-<ol>
-<li><strong>add a python ide or whatever and more dev stuff</strong></li>
-<li><strong>add a app that prompts for a site, and uses google proxy</strong></li>
-</ol>

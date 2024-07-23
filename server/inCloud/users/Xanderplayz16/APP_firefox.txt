@@ -1,1 +1,0 @@
-<iframe src='https://replit.com/@username-pass/fx-us-6?v=1&outputonly=1&lite=true' width='99%' height = '99%'/>

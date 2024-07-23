@@ -1,1 +1,0 @@
-to fix background, find background.txt in the cloud menu and delete it.

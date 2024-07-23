@@ -1,1 +1,0 @@
-let autoWin = openWindow(300, 225, 'Lorem Ipsum', false, 'https://github.com/kdude57/hostpics/blob/main/lor.png?raw=true'); autoWin.style.backgroundColor = 'black';

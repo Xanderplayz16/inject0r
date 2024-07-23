@@ -1,2 +1,0 @@
-<input id='urlbox' placeholder='Enter URL here' type='url'>
-<input id='submit' onclick="let c1 = '<iframe src=\'';let c3 = '\' width=\'99%\' height = \'99%\'/>';let c2 = document.getElementById('urlbox').value;prompt('code:',c1+c2+c3);" type='submit'>

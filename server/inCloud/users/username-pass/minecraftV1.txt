@@ -1,1 +1,0 @@
-<button href='javascript: void(0);' onclick='window.open("https://eaglercraft.watrfall.repl.co/", "_blank", "popup");'>test</button>

@@ -1,1 +1,0 @@
-1.go to google.com 2.click the LTBEEF bookmarklet twice 3.if you are on a page with switches it works **does not work on school wifi

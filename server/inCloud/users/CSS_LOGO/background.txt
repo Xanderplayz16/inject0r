@@ -1,1 +1,0 @@
-blob:chrome-untrusted://media-app/554ccc52-621c-4ad3-b11a-7b3dba3034f4;rgb(0, 1, 28);;#3d0000

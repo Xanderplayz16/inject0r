@@ -1,1 +1,0 @@
-document.getElementById('header').removeAttribute('src'); document.getElementById('header').removeAttribute('srcdoc'); document.getElementById('header').src = prompt('siteURL?','https://'); document.body.style.backgroundColor = 'black';

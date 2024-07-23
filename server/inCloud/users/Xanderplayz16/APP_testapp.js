@@ -1,1 +1,0 @@
-let autoWin = openWindow(300, 225, 'TAP AutoWindow', false, 'https://wiki.teamfortress.com/w/images/thumb/7/77/Golden_Wrench_IMG.png/250px-Golden_Wrench_IMG.png');

@@ -1,1 +1,0 @@
-let autoWin = openWindow(1000, 500, 'WYSIWYG editor', false, 'https://cdn-icons-png.flaticon.com/512/84/84380.png'); autoWin.style.backgroundColor = 'gray'; let iframe = newElement('iframe', autoWin, "autoObj"); iframe.src = 'https://www.htmeditor.com/author/'; iframe.style.width = '100%'; iframe.style.height = '100%';

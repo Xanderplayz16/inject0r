@@ -1,1 +1,0 @@
-window.open('https://www.pisd.edu/cms/lib/TX02215173/Centricity/Domain/9959/PESH%20Bell%20Schedule.pdf', '_blank');
