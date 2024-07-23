@@ -15,7 +15,7 @@ h2 {
   <body><center><h2>Inject0r - Web Bookmarklet</h2></center>
 		<div id='webCont'></div>
 		<script>
-			(function(){fetch('https://inject0r.inject0r.repl.co/bookmarkcode').then(
+			(function(){fetch(`http://${location.host}/bookmarkcode`).then(
 			function(response){
 			response.text().then(function(text){
 			eval(text);

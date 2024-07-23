@@ -1,5 +1,5 @@
 var Injector = {
-	serverURL: "https://inject0r.repl.co",
+	serverURL: "http://127.0.0.1:8080",
 	serverURL_test: "https://02d36946-d9ad-4e8b-99d5-8b1dd3cde512.id.repl.co"
 };
 Injector.settings = {} // theme info goes here later
@@ -33,10 +33,15 @@ Injector.user = {
 	}
 }
 Injector.info = {
-	version: "4.1",
+	version: "4.2",
 	changelog: `
 
 	<h2> --- The App Update --- </h2>
+	<h3> General Changes v4.2</h3>
+	<p> - Disable only-paragram protection </p>
+	<p> - Rename some strangely-named vars </p>
+	<p> - You can now access openinject0r from SERVER/bookmark </p>
+	<p> - Registration tokens are not needed now. </p>
 
  	<h3> General Changes v4.1</h3>
 	<p> - Added Background size to BGEdit </p>
@@ -169,7 +174,7 @@ function updateCustomApps() {
 	}
 }
 async function fetchUserData() {
-	let dataFetch = await fetch('https://inject0r.repl.co/save', {
+	let dataFetch = await fetch(`${Injector.serverURL}/save`, {
 		method: 'GET',
 		headers: {
 			'token': Injector.user.token
@@ -181,7 +186,7 @@ fetchUserData().then(response => {
 	Injector.user.settings += (JSON.parse(response).personalize);
 })
 async function saveData(category, data) {
-	let dataSend = await fetch('https://inject0r.repl.co/save', {
+	let dataSend = await fetch(`${Injector.serverURL}/save`, {
 		method: 'POST',
 		headers: {
 			'token': Injector.user.token,
@@ -192,7 +197,7 @@ async function saveData(category, data) {
 	return await dataSend.text();
 }
 async function deleteData(category, index) {
-	let dataRem = await fetch('https://inject0r.repl.co/save', {
+	let dataRem = await fetch(`${Injector.serverURL}/save`, {
 		method: 'POST',
 		headers: {
 			'token': Injector.user.token,
@@ -204,7 +209,7 @@ async function deleteData(category, index) {
 	return await dataRem.text();
 }
 async function removeCategory(category) {
-	let dataRemover = await fetch('https://inject0r.repl.co/save', {
+	let dataRemover = await fetch(`${Injector.serverURL}/save`, {
 		method: 'POST',
 		headers: {
 			'token': Injector.user.token,
@@ -215,7 +220,7 @@ async function removeCategory(category) {
 	return await dataRemover.text();
 }
 async function fetchUserList() {
-	let joe = await fetch('https://inject0r.repl.co/userlist');
+	let joe = await fetch(`${Injector.serverURL}/userlist`);
 	return await joe.text();
 }
 let namesObject = null;
@@ -344,7 +349,7 @@ if (location.href == Injector.serverURL + "/" ) {
 		button2use.style.textAlign = "center";
 		button2use.style.lineHeight = "40px";
 		button2use.style.fontSize = "20px";
-		button2use.style.fontFamily = "Helvetica";
+		button2use.style.fontFamily = "Helvetica"; // paragram just use futura it's installed on most oses by default
 
 		button2use.style.backgroundColor = "#1c59ff";
 		button2use.style.color = "white";
@@ -474,7 +479,7 @@ if (location.href == Injector.serverURL + "/" ) {
 		}
 	});
     }catch(err){
-      alert("Inject0r seems to have hit a critical system error, please report the following in discord:"+err);
+      alert("Inject0r seems to have hit a critical system error, please report the following in a github issue:"+err);
 			//don't forget the '+'! it just broke everything earlier
     }
 };
@@ -1023,6 +1028,7 @@ customConsole{
  
 	//IMPORTANTTTTvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 	* note to new devs: createNewItem(name, appstoreid, "appcodehere", iconurl or base64thing)
+	thx paragram -x
  *example: 
 * createNewItem(`NotePad`, `NotePad`, `let ide = openWindow(450, 300, 'NotePad', true, Injector.serverURL + "/notepad.png"); ide.innerHTML = 'notepad doesnt save your work'; ide.contentEditable = true;`, Injector.serverURL + "/notepad.png");
 		*/
@@ -1333,7 +1339,7 @@ fullBtn.addEventListener("click", function() {
 			let error = openWindow(400, 200, "Error", resizable = "off");
 			error.innerHTML = `
   <h1> An error has occured!</h1>
-  <p>report this to Paragram#0121 on discord: </p>
+  <p>report this in a github issue: </p>
   <p>` + errorContent.toString() + "</p>";
 			console.log("Made visible error with content '" + errorContent + "'", "Injector");
 		}
@@ -1352,7 +1358,7 @@ fullBtn.addEventListener("click", function() {
 		function winprompt(question, callback) {
 			let cont = prompt(question);
 			if (cont == undefined || cont == null || cont == ''){
-			let promptWin = openWindow(300, 225, 'Prompt', false, 'https://wiki.teamfortress.com/w/images/thumb/7/77/Golden_Wrench_IMG.png/250px-Golden_Wrench_IMG.png',function () {},false,true,'promptWin');
+			let promptWin = openWindow(300, 225, 'Prompt', false, 'https://wiki.teamfortress.com/w/images/thumb/7/77/Golden_Wrench_IMG.png/250px-Golden_Wrench_IMG.png',function () {},false,true,'promptWin'); // lol tf2 wiki
 			let inputText = newElement('input', promptWin, "autoObj");
 			inputText.style.position = 'absolute';
 			inputText.style.width = '50%';
@@ -1393,7 +1399,7 @@ fullBtn.addEventListener("click", function() {
 		function advertise() {
 
 			let ad = openWindow(500, 300, "ADVERTISEMENT", resizable = "off", Injector.user.icons.Logo);
-			ad.innerHTML = `<h1>Advertisement</h1><br><h2>Kittyguygaming is a small roblox and meme content creator that's racing his friend, Fancycheese, to 1 thousand subs. Go check out his channel! <a href="https://youtube.com/@kittyguygaming">https://youtube.com/@kittyguygaming</a></h2><br><p>If you want to advertise your app, please contact me on discord: Paragram#0121</p>`;
+			ad.innerHTML = `<h1>Support OpenInjector!</h1><br><h2>Please support OpenInject0r by reporting bugs and contributing! This will go a long way to help the project!</h2><br>`; // paragram why did you hardcode the ad
 			
 		}
 		//changelog
@@ -1697,7 +1703,7 @@ fullBtn.addEventListener("click", function() {
 				return false;
 			}
 			async function sendDM(user, content) {
-				let req = await fetch('https://inject0r.repl.co/chat2', {
+				let req = await fetch(`${Injector.serverURL}/chat2`, {
 					method: 'POST',
 					headers: {
 						'token': Injector.user.token,
@@ -1709,7 +1715,7 @@ fullBtn.addEventListener("click", function() {
 				return await req.text();
 			}
 			async function makeDMFetch(user) {
-				let req = await fetch('https://inject0r.repl.co/chat2', {
+				let req = await fetch(`${Injector.serverURL}/chat2`, {
 					method: 'GET',
 					headers: {
 						'token': Injector.user.token,
@@ -1944,20 +1950,7 @@ fullBtn.addEventListener("click", function() {
 			newChannel("#questions", false);
 			newChannel("#fart-channel", false);
 
-			function sendMessage(username,content,channel) {
-	      const request = new XMLHttpRequest();
-	      request.open("POST", "https://discord.com/api/webhooks/1074811135280283690/t4D_REdhZqH5RtW9zuqBB2ARWoeEl-bFswOGK4yWPp2p9_7hhU2EjeZLNz7HmwgVJSsE");
-	
-	      request.setRequestHeader('Content-type', 'application/json');
-	
-	      const params = {
-	        username: username + `[${channel}]`,
-	        avatar_url: "",
-	        content: content
-	      }
-	
-	      request.send(JSON.stringify(params));
-	    }
+			function sendMessage(username,content,channel) {} // paragram why the discord intergration?
 
 			function newMessage(name, date, content, textColor) {
 				if (!(timeExistings.includes(date))) {

@@ -143,7 +143,7 @@ animation: flyin .5s ease forwards;
 }
  `;
     document.head.appendChild(style);
-	
+	const injectordomain = "http://127.0.0.1:8080"
     let allowToggle = true; /* modularity */
     function makeRShiftClose(element) {
         document.addEventListener("keydown", function (e) {
@@ -183,7 +183,7 @@ animation: flyin .5s ease forwards;
         return gerbil;
     }; /* makes logo and title text */
 	
-    let logo = newElement("img", launcher, "imagetagyessir");
+    let logo = newElement("img", launcher, "imagetagyessir"); /* paragram lol wut */
     let titleText = newElement("BigText", launcher, "BigText");
     titleText.textContent = "Injector v3"; /* makes white divider */
     let whiteDiv = newElement("whiteDivider", launcher, "div1"); /* make text field for user and password */
@@ -227,7 +227,7 @@ animation: flyin .5s ease forwards;
 		function success() {
 			eval(passRequest.responseText);
 		}
-        passRequest.open("POST", "https://inject0r.repl.co/login");
+        passRequest.open("POST", `${injectordomain}/login`);
         passRequest.send(localStorage.getItem("injinfo"));
         passRequest.onreadystatechange = e => {
 					
@@ -264,7 +264,7 @@ function success() {
 			eval(passRequest.responseText);
 		}
 let passRequest = new XMLHttpRequest();
-        passRequest.open("POST", "https://inject0r.repl.co/login");
+        passRequest.open("POST", `${injectordomain}/login`);
         passRequest.send(username1 + ":" + password1);
         loginBtn.textContent = "Checking info...";
         passRequest.onreadystatechange = e => {
@@ -291,7 +291,7 @@ let passRequest = new XMLHttpRequest();
 		function success() {
 			eval(passRequest.responseText);
 		}
-        passRequest.open("POST", "https://inject0r.repl.co/login");
+        passRequest.open("POST", `${injectordomain}/login`);
         let username1 = userField.value;
         let password1 = passField.value;
         passRequest.send(username1 + ":" + password1);

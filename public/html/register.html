@@ -255,7 +255,7 @@ function cancel(){
     } else if (document.querySelector("#user").value.length > 22) {
       alert("Name is longer than 22 characters!")
     } else {
-      let res = await fetch("https://inject0r.repl.co/register", {
+      let res = await fetch(`http://${location.host}/register`, { // If this is set up properly, http should redirect to https.
         method: 'POST',
         headers: {
           "password": document.querySelector('#pass').value,

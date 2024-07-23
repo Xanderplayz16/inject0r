@@ -55,7 +55,7 @@ consoleUI("eaglercraft", "pinged", "server up")
   console.log(err)
 }
 async function getRandomCharstream() {
-	let ranky = await fetch('https://www.random.org/strings/?num=1&len=10&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new');
+	let ranky = await fetch('https://www.random.org/strings/?num=1&len=10&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new'); //WTF LOL JUST USE CRYPTO
 	return await ranky.text();
 }
 if (!reader.existsSync('./server/inCloud')) {
@@ -97,6 +97,14 @@ function requestListener(req, res) {
 					res.end();
 				return;
 
+				case "/bookmark":
+				res.writeHead(200, {
+						'Content-Type': 'text/html',
+						'Access-Control-Allow-Origin': '*'
+					});
+					res.write(reader.readFileSync('./public/html/bookmark.html', "utf8"))
+					res.end();
+				return;
 				case "/bmls":
 				res.writeHead(200, {
 						'Content-Type': 'application/json',
@@ -280,7 +288,7 @@ function requestListener(req, res) {
 			case "/login":
 				if (req.method.toLowerCase() !== "post") {
 					res.writeHead(401, 'Invalid');
-					res.write("NO GO AWAY");
+					res.write("Hello, wrong page! Please use the bookmarklet.");
 					res.end();
 					return;
 				}
@@ -289,7 +297,7 @@ function requestListener(req, res) {
 					data += chunk.toString();
 				}).on('end', () => {
 					if (!data.includes(":")) {
-						res.writeHead(400, "Bad Request");
+						res.writeHead(404, "Bad Credentials"); // PARAGRAM 400 ISN'T WHAT YOU USE HERE
 						res.write("invalid cred");
 						res.end();
 						return;
