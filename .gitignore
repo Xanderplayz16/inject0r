@@ -1,3 +1,4 @@
 replit.nix
 logintokens.json
 *.kate-swp
+node_modules
