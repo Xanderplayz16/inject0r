@@ -4,7 +4,6 @@ var httpstest = require('https')
 var reader = require('fs');
 var crypto = require('crypto'); //Only for token random bytes not for pasword hashing.
 var bcrypt = require('bcrypt') // For password hashing new algorithm by Jake378.
-var fetch = require('node-fetch');
 var Userdata = require("./server/data/userdata.json");
 var rimraf = require("rimraf");
 const Settings = require("./server/config/settings.json");
@@ -54,10 +53,10 @@ try {
 } catch(err) {
   console.log(err)
 }
-async function getRandomCharstream() {
-	let ranky = await fetch('https://www.random.org/strings/?num=1&len=10&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new'); //WTF LOL JUST USE CRYPTO
-	return await ranky.text();
-}
+//async function getRandomCharstream() {
+//	let ranky = await fetch('https://www.random.org/strings/?num=1&len=10&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new'); //WTF LOL JUST USE CRYPTO
+//	return await ranky.text();
+//}
 if (!reader.existsSync('./server/inCloud')) {
 	reader.mkdirSync('./server/inCloud')
 	reader.mkdirSync('./server/inCloud/users');
@@ -828,6 +827,8 @@ function requestListener(req, res) {
 							} else {
 								if (req.headers.cloudtype == "getFile") {
 									try {
+										if (cldata.includes('..')){alert(`${clname} may be trying to get data from outside their cloud data directory!`); res.writeHead('400', 'Nice try.'); res.end()}
+											
 										res.writeHead('200', 'OK')
 										res.write(reader.readFileSync('./server/inCloud/users/' + clName + "/" + cldata))
 										res.end();
@@ -837,6 +838,7 @@ function requestListener(req, res) {
 								}
 								if (req.headers.cloudtype == "writeFile") {
 									try {
+										if (cldata.includes('..')){alert(`${clname} may be trying to get data from outside their cloud data directory!`); res.writeHead('400', 'Nice try.'); res.end()}
 										reader.writeFileSync('./server/inCloud/users/' + clName + "/" + req.headers.filetowrite + req.headers.filetype, cldata)
 
 
@@ -847,6 +849,7 @@ function requestListener(req, res) {
 								}
 								if (req.headers.cloudtype == "deleteFile") {
 									try {
+										if (cldata.includes('..')){alert(`${clname} may be trying to get data from outside their cloud data directory!`); res.writeHead('400', 'Nice try.'); res.end()}
 										reader.unlinkSync('./server/inCloud/users/' + clName + "/" + cldata);
 										res.writeHead('200', 'OK');
 										res.end();

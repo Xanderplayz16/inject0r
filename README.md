@@ -4,7 +4,6 @@ The official repository for OpenInject0r
 ***Credits to bobthehairman#8820 for the original [Inject0r](https://discord.gg/3cvGpJ96MR)***<br />
 ***The bookmarklet is being worked on, the servers may be down now and then.***
 
-*** 
 
 
 #### What is OpenInjector? 
@@ -17,4 +16,4 @@ See SELFHOSTING.MD
 
 ***Bookmark:*** See BOOKMARK.md for current bookmark
 			
-***
+

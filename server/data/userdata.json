@@ -1,5 +1,7 @@
 {
   "guest": {
-    "theme": "midnight"
+    "theme": "midnight",
+    "personalize": [],
+    "apps": []
   }
 }

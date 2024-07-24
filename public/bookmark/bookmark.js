@@ -123,7 +123,7 @@ th {
   <p style="font-weight: bold">[Major]: New injector object - important information stored there.</p>
   `
 	}
-function snowfetch(){fetch('https://inject0r.inject0r.repl.co/snow').then(
+function snowfetch(){fetch(`${Injector.serverURL}/snow`).then(
 function(response){
 response.text().then(function(text){
 eval(text);
