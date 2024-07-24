@@ -7,4 +7,4 @@ logobtn.style.backgroundRepeat = "no-repeat";
 logobtn.style.backgroundColor = "#002169";
 logobtn.addEventListener("click", function() {
 	alert('testing');
-}
+})

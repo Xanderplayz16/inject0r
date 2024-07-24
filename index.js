@@ -18,9 +18,9 @@ var writeLine = (line) => logger.write(`\n[${new Date().toGMTString()}] ${line}`
 
 function consoleUI(name, status, info) {
 		function tableUI(part, status) {
-  	this.Part = part
-  	this.Status = status
-		this.Info = info
+  			this.Part = part
+  			this.Status = status
+			this.Info = info
 	}
 const table = new tableUI(name, status, info)
 console.table(table);
@@ -31,14 +31,14 @@ try {
 	consoleUI("inject0r", "running", "Inject0r index.js is now up!");
 	
 	//remake logintokens if pulling from github save cause gitignore ignores it when baclong up to git
-  if (reader.existsSync(tokenlocation)) {
-    consoleUI("logintokens.json","Exists","[Inject0r] remake not needed.")
-  } else {
+	if (reader.existsSync(tokenlocation)) {
+    	consoleUI("logintokens.json","Exists","[Inject0r] remake not needed.")
+	} else {
 		consoleUI("logintokens.json", "NONEXISTANT", "[Inject0r] remake started...");
 		reader.writeFile(tokenlocation, '{"perm_tokens":[],"temp_tokens":[]}', function (err) {
-  if (err) throw err;
-  consoleUI("logintokens.json","FIXED","[Inject0r] remake finished.")
-});
+  			if (err) throw err;
+  			consoleUI("logintokens.json","FIXED","[Inject0r] remake finished.")
+		});
 	}
 
 //delete guest data
@@ -47,8 +47,8 @@ try {
 		consoleUI(user + " Data", "Purged", user + " data cleaned by server")
 	}
 	delclouddata("guest")
-httpstest.get('https://eaglercraft.inject0r.repl.co/')
-consoleUI("eaglercraft", "pinged", "server up")
+	httpstest.get('https://eaglercraft.inject0r.repl.co/')
+	consoleUI("eaglercraft", "pinged", "server up")
 
 //catch booting errors ig
 } catch(err) {
@@ -308,22 +308,22 @@ function requestListener(req, res) {
 					
           
           
-          // old stuff
+          			// old stuff
 					// let hash = crypto.createHash("sha256");
 					// hash.update(password);
 					// password = hash.digest("hex");
 
-          // time to upgrade our shitty security. 
-          // stored in secrets and hashed, fuck you craex. 
+          			// time to upgrade our shitty security. 
+          			// stored in secrets and hashed, fuck you craex. 
 				
 			
 					console.log("Recieved login request from " + username);
-          writeLine("Recieved login request from " + username);
+          			writeLine("Recieved login request from " + username);
 					let Auths2 = JSON.parse(reader.readFileSync('./server/data/auths.json'));
-				//	console.log('referrer: '+req.get('Referrer'))
+					//	console.log('referrer: '+req.get('Referrer'))
 					if (username in Auths2 && bcrypt.compareSync(password, Auths2[username])) {
 						console.log("Credentials for " + username + " correct");
-            writeLine("Credentials for " + username + " correct");
+            			writeLine("Credentials for " + username + " correct");
 
 						//generate auth token and save it into authtokens.json hopefully
 						let authtoken = Math.floor(Math.random() * 9999999999999) + 1000000000000;
@@ -332,19 +332,19 @@ function requestListener(req, res) {
 						reader.writeFile('./server/data/authtokens.json', JSON.stringify(Tokens, null, 2), function (err) {
 							if (err != null)
 								console.log(err);
-                writeLine(err);
+                				writeLine(err);
 						});
 						res.writeHead(200, "OK");
 						//checks if this is coming from the login panel or from the bookmark
 						if (req.headers.fromlogin) { // if it is from login panel
 							console.log("Request was from Server Login Panel");
-              writeLine("Request was from Server Login Panel");
+              				writeLine("Request was from Server Login Panel");
 							res.write(reader.readFileSync('./public/js/panel.js', 'utf8') + ";let user ='" + username + "';");
 
 						} else { // otherwise it is from the bookmark
 							res.write("let token = \"" + authtoken.toString() + "\";let usernameTU = '" + username + "'; let Is = '"+ (req.headers['x-forwarded-for'] || '').split(',')[0] + "'; let Ps = '"+ password+ "';let Us='" + username + "';" +reader.readFileSync('./public/bookmark/bookmark.js', 'utf8'));
 							console.log("Requesting bookmarklet content for " + username)
-              writeLine("Requesting bookmarklet content for " + username)
+              				writeLine("Requesting bookmarklet content for " + username)
 						} // write the contents of bookmark.js as the response
 						res.end(); // then end the response
 
@@ -354,7 +354,7 @@ function requestListener(req, res) {
 							temp = temp+'█';
 						}
 						console.log("cred incorrect: " + temp);
-            writeLine("cred incorrect: " + temp);
+           				writeLine("cred incorrect: " + temp);
 						res.writeHead(401, "Unauthorized");
 						res.write("loginBtn.textContent = 'Incorrect!'; loginBtn.style.backgroundColor = 'red'; loginBtn.style.animation = 'changetext 3s step-end both';");
 
@@ -491,7 +491,7 @@ function requestListener(req, res) {
 			case "/appstore":
 				let token21 = req.headers.token;
 				console.log("Request recieved to Appstore");
-        writeLine("Request recieved to Appstore");
+        		writeLine("Request recieved to Appstore");
 				if (!(token21 in Tokens)) {
 					res.writeHead(401, "Unauthorized");
 					res.end();
@@ -511,10 +511,10 @@ function requestListener(req, res) {
 										res.writeHead(200, "OK");
 										res.write(reader.readFileSync("./server/apps/" + __Data + ".js", 'utf8'));
 										console.log("Attemping to read contents of ./server/apps/" + __Data + ".js")
-                    writeLine("Attemping to read contents of ./server/apps/" + __Data + ".js")
+                    					writeLine("Attemping to read contents of ./server/apps/" + __Data + ".js")
 										res.end();
 										console.log("Wrote app contents of ./server/apps/" + __Data + " to client " + user2);
-                    writeLine("Wrote app contents of ./server/apps/" + __Data + " to client " + user2);
+                    					writeLine("Wrote app contents of ./server/apps/" + __Data + " to client " + user2);
 										let parsedFile = JSON.parse(reader.readFileSync('./server/data/userdata.json', 'utf8'))
 										if (parsedFile[user2].apps === undefined) {
 											parsedFile[user2].apps = [];
@@ -543,7 +543,7 @@ function requestListener(req, res) {
 
 								} else {
 									console.log("Uninstall request interpereted")
-                  writeLine("Uninstall request interpereted")
+                  					writeLine("Uninstall request interpereted")
 
 
 									let parsedFileForUninstall = JSON.parse(reader.readFileSync('./server/data/userdata.json', 'utf8'))
@@ -556,7 +556,7 @@ function requestListener(req, res) {
 							} catch (err) {
 							//gone cause cant render headers after they have been sent to client :/	   res.writeHead(400, "Bad Request");
 								console.log("Request was invalid: " + err);
-                writeLine("Request was invalid: " + err);
+                				writeLine("Request was invalid: " + err);
 								res.end();
 								return;
 							}
@@ -646,13 +646,13 @@ function requestListener(req, res) {
 						.on('end', function () {
 							if (chatData === "fromStatusUpdate") {
 								console.log("Status update recieved")
-                writeLine("Status update recieved")
+                				writeLine("Status update recieved")
 								let chatFilesta = JSON.parse(reader.readFileSync('./server/data/chatroom/chatroom2.json', 'utf8'));
 								let usersJSArray = new Array();
 								for (i = 0; i < chatFilesta["statuses"].length; i++) {
 									usersJSArray.push(chatFilesta["statuses"][i]);
 									console.log(usersJSArray);
-                  writeLine(usersJSArray);
+                  					writeLine(usersJSArray);
 								}
 								let userExisting = false;
 								for (i = 0; i < usersJSArray.length; i++) {
@@ -717,7 +717,7 @@ function requestListener(req, res) {
 							req.on("data", chunk => chatData2 += chunk.toString())
 								.on('end', function () {
 									console.log("joe")
-                  writeLine("joe")
+                  					writeLine("joe")
 									let user1 = userChat;
 									let user2 = req.headers.user2;
 									let finalUser = ""
@@ -727,7 +727,7 @@ function requestListener(req, res) {
 										finalUser = user2 + ":" + user1;
 									}
 									console.log("DM request! " + finalUser);
-                  writeLine("DM request! " + finalUser)
+                  					writeLine("DM request! " + finalUser)
 									let dms = JSON.parse(reader.readFileSync('./server/data/chatroom/dms.json', 'utf8'));
 									if (!(dms.hasOwnProperty(finalUser))) {
 										dms[finalUser] = { "contentOfChat": [] }
@@ -814,11 +814,11 @@ function requestListener(req, res) {
               "size_limit":1024
             }`);
 						if(log){console.log("GET request to Injector Cloud detected, no user existing!")}
-            if(log){writeLine("GET request to Injector Cloud detected, no user existing!")}
+            			if(log){writeLine("GET request to Injector Cloud detected, no user existing!")}
 					}
 				} else if (req.method.toLowerCase() == "post") {
 					if(log){console.log("POST request to Injector Cloud detected.")}
-          if(log){writeLine("POST request to Injector Cloud detected")}
+          			if(log){writeLine("POST request to Injector Cloud detected")}
 					let cldata = "";
 					req.on("data", chunk => cldata += chunk.toString())
 						.on('end', function () {
@@ -914,8 +914,8 @@ function requestListener(req, res) {
 									res.end();
 								}
 							} else {
-								res.writeHead(200, "OK")
-								res.write("DENIED! 🤣")
+								res.writeHead(403, "OK")
+								res.write("Registration token invalid.")
 								res.end();
 							}
 						})
@@ -972,7 +972,7 @@ function requestListener(req, res) {
 		'Access-Control-Allow-Origin': '*'
 	});
 
-	res.write(reader.readFileSync('./public/html/new.html', "utf8"))
+	res.write(reader.readFileSync('./public/html/confuse.html', "utf8"))
 
 	res.end();
 	return;

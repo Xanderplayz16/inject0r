@@ -69,6 +69,7 @@ javascript: (function () {
      position: relative;
      background-color: black;
      color: white;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
      border-style: none none solid none;
      border-color: white;
      border-width: 2px;
@@ -91,7 +92,7 @@ javascript: (function () {
  genericText{
      position: relative;
      color: white;
-		 font-family: "Times New Roman", Times, serif;
+		 font-family: Verdana, Geneva, Tahoma, sans-serif;
      font-family: 15px;
      opacity: 0;
      left: 26px;
@@ -109,7 +110,7 @@ javascript: (function () {
      bottom: 15px;
      left: 72px;
      font-size: 30px;
-     font-family: "Times New Roman", Times, serif;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
      text-align: center;
      line-height: 50px;
      transition-duration: 0.5s;
@@ -182,10 +183,11 @@ animation: flyin .5s ease forwards;
         gerbil.id = id.toString();
         return gerbil;
     }; /* makes logo and title text */
-	
+	const fontFamily = "Verdana, Geneva, Tahoma, sans-serif";
     let logo = newElement("img", launcher, "imagetagyessir"); /* paragram lol wut */
     let titleText = newElement("BigText", launcher, "BigText");
     titleText.textContent = "Injector v3"; /* makes white divider */
+    titleText.style.fontFamily = fontFamily;
     let whiteDiv = newElement("whiteDivider", launcher, "div1"); /* make text field for user and password */
     let userField = newElement("input", launcher, "inputField");
     let passField = newElement("input", launcher, "inputField");
@@ -193,6 +195,7 @@ animation: flyin .5s ease forwards;
     passField.placeholder = "Password";
     passField.type = "password"; /* make login button */
     let loginBtn = newElement("pseudobtn", launcher, "loginbtn");
+    //loginBtn.style.fontFamily = fontFamily;
     loginBtn.textContent = "Login"; /* manage opening animation */
     function openAnim() {
         setTimeout(function () {
@@ -206,7 +209,6 @@ animation: flyin .5s ease forwards;
             setTimeout(function () {
                 launcher.style.height = "500px";
                 launcher.style.top = ("calc(50% - 250px)");
-                launcher.style.borderRadius = "0px";
                 setTimeout(function () {
                     /* make all elements visible */
                     whiteDiv.style.opacity = "1";
