@@ -222,7 +222,7 @@
   </head>
   <body>
    <img id="openingLogo" src="/logo.png">
-    <h1 id="nameTxt">Inject0r<p id="subNameText">Version 3.2 (Xmas update)</p></h1>
+    <h1 id="nameTxt">Inject0r<p id="subNameText">Version 4.2 (Xmas update)</p></h1>
     <img src="/disclogo" id="discLogo">
     <div class="CategoryMenu" id="CategoryMenu"></div>
     <div id="categoryContent">
@@ -274,7 +274,7 @@
         categoryHeader.textContent = headerContent;
         categoryContentText.innerHTML = contentText;
         while(imageSection.firstChild)
-   imageSection.removeChild(imageSection.firstChild);
+        imageSection.removeChild(imageSection.firstChild);
         numImages = 0;
         for(i=0; i<imageArray.length; i++){
           let newImg = document.createElement("img");
@@ -299,7 +299,7 @@
       newCategory("Purchase", "Purchase Injector", `Injector is free, and can be gotten if you contact me. Contact me on by raising a request on this github info to get Injector. Download the client from the releases tab, please note you need an account to use.
 <br><br>If you have gotten your single-use code, go <a href="https://inject0r.repl.co/register">Here</a> to register.`)
 			newCategory("Disclaimer", "Disclaimer", "The information provided by Inject0r ('we', 'us' or 'our') on <a href='https://inject0r.repl.co/'>https://inject0r.repl.co/</a> ('the Site')  is for general informational purposes only. All information on the Site is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on. UNDER NO CIRCUMSTANCE SHALL WE HAVE ANY LIABILITY TO YOU FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF THE SITE OR RELIANCE ON ANY INFORMATION PROVIDED ON THE SITE. YOUR USE OF THE SITE AND YOUR RELIANCE ON ANY INFORMATION ON THE SITE IS SOLELY AT YOUR OWN RISK. The Site may contain (or you may be sent through) links to other websites or content belonging to or originating from third parties or links to websites and features in banners or other advertising. Such external links are not investigated, monitored, or checked for accuracy, adequacy, validity, reliability, availability, or completeness by us. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR THE ACCURACY OR RELIABILITY OF ANY INFORMATION OFFERED BY THIRD-PARTY WEBSITES LINKED THROUGH THE SITE OR ANY WEBSITE OR FEATURE LINKED IN ANY BANNER OR OTHER ADVERTISING. WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES." , ["/deskperson"])
-     newCategory("Web Bookmarklet", "Bookmarklets Blocked?", `A web-based client is available! you can get it <a href="https://github.com/ironswordX-dev/Inject0r-Client">here</a> or you can access it through the website <a href="https://Inject0r.repl.co/public/html/bookmark.html>here</a>"`, ["/exdesktop.png", "/exlogin.png"]);
+     newCategory("Web Bookmarklet", "No bookmarklets?", `A web-based client is available! you can get it <a href="https://github.com/ironswordX-dev/Inject0r-Client">here</a> or you can access it through the website <a href="/bookmark">here</a>`, ["/exdesktop.png", "/exlogin.png"]);
      </script>
 		
     </body>

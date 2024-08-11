@@ -10,8 +10,8 @@
 		"max_withdraw": "10000",
 		"max_deposit": "100",
 		"min_deposit": "10",
-		"premium": "paragram",
-		"admins": ["paragram","PBSI"],
-		"banned": "guest"		
+		"premium": "guest",
+		"admins": ["guest"],
+		"banned": "paragram"		
 	}
 }

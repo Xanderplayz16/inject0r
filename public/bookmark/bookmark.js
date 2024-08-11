@@ -220,8 +220,8 @@ async function removeCategory(category) {
 	return await dataRemover.text();
 }
 async function fetchUserList() {
-	let joe = await fetch(`${Injector.serverURL}/userlist`);
-	return await joe.text();
+	let req = await fetch(`${Injector.serverURL}/userlist`);
+	return await req.text();
 }
 let namesObject = null;
 fetchUserList().then(response => {
@@ -558,8 +558,7 @@ taskbarBtn{
   width: 45px;
   height: 45px;
   bottom: 1px;
-  background-color: #002169;
-	background-size: 100% 100%;
+  background-size: 100% 100%;
   color: white;
   border-radius: 0px;
   opacity: 1;
@@ -947,8 +946,8 @@ customConsole{
 
 		// closed style left makes sure the taskbar button being moved is farther right than the object removed
 		let indexLeft = null;
-		let tbarColor = "#002169";
-
+		//let tbarColor = "#002169";
+		let tbarColor = "#00000000"; // fallback color
 		//primative logo button, will be customizeable, WIP
 		let logobtn = newElement("taskbarBtn", taskbar, "logoBtn");
 		logobtn.style.left = "2px";
@@ -956,7 +955,7 @@ customConsole{
 		logobtn.style.backgroundSize = "50% 50%";
 		logobtn.style.backgroundPosition = "center";
 		logobtn.style.backgroundRepeat = "no-repeat";
-		logobtn.style.backgroundColor = '#00000000';
+		logobtn.style.backgroundColor = tbarColor;
 		logobtn.addEventListener("click", function() {
 			alert('testing');
 		})
@@ -1685,7 +1684,7 @@ fullBtn.addEventListener("click", function() {
 		let pseudoInput = null;
 		//chatroom
 
-		function app3() {
+		function chatapp() {
 			//setting settings and variables
 			let latestMsgs = [];
 			let chatSettings = {
@@ -1950,7 +1949,7 @@ fullBtn.addEventListener("click", function() {
 			newChannel("#questions", false);
 			newChannel("#fart-channel", false);
 
-			function sendMessage(username,content,channel) {} // paragram why the discord intergration?
+			function sendMessage(username,content,channel) {} // ...
 
 			function newMessage(name, date, content, textColor) {
 				if (!(timeExistings.includes(date))) {
@@ -2002,9 +2001,9 @@ fullBtn.addEventListener("click", function() {
 					onlinePaddingTop += 47;
 				}
 			}
-			let joeLine = newOnlineUser("Loading...");
+			let loadingLine = newOnlineUser("Loading...");
 
-			let onClientArray = [joeLine];
+			let onClientArray = [loadingLine];
 			function makeChatFetch() {
 				let chatFetch = new XMLHttpRequest;
 				chatFetch.open('GET', Injector.serverURL + '/chat2');
@@ -2195,8 +2194,8 @@ channel:hover{
 		// prox browser
 
 		function app4(){
-let proxybrowser = openWindow(1000, 500, "ProxBrowser", resizable = "on", Injector.user.icons.ProxB)
-	let browserwindow = newElement("iframe", proxybrowser, "proxyBrowser");
+			let proxybrowser = openWindow(1000, 500, "ProxBrowser", resizable = "on", Injector.user.icons.ProxB)
+			let browserwindow = newElement("iframe", proxybrowser, "proxyBrowser");
 			browserwindow.src = "https://prox-switcher.inject0r.repl.co";
 			browserwindow.style.position = "absolute";
 			browserwindow.style.width = "100%";
@@ -2296,7 +2295,7 @@ let proxybrowser = openWindow(1000, 500, "ProxBrowser", resizable = "on", Inject
 		}
 		*/
 		// app store
-		function app5() {
+		function appstoreapp() {
 			let store = openWindow(500, 320, "App Store", resizable = "off", Injector.user.icons.AppStore);
 			let topHeaderBar = newElement("appstorebar", store, "appbar");
 			let appList = newElement("applist", store, "applister");
@@ -2536,17 +2535,17 @@ let proxybrowser = openWindow(1000, 500, "ProxBrowser", resizable = "on", Inject
 				checkbox.style.width = "20px";
 				checkbox.style.height = "20px";
 				checkbox.style.top = top;
-				let joe = newElement("p", optionsPanel, "antifa");
-				joe.style.position = "absolute";
-				joe.style.top = checkbox.style.top;
-				joe.style.left = "45px";
-				joe.textContent = name;
-				joe.style.top = checkbox.offsetTop - 17 + 'px';
-				joe.style.fontSize = "15px";
+				let checkboxLabel = newElement("p", optionsPanel, "antifa");
+				checkboxLabel.style.position = "absolute";
+				checkboxLabel.style.top = checkbox.style.top;
+				checkboxLabel.style.left = "45px";
+				checkboxLabel.textContent = name;
+				checkboxLabel.style.top = checkbox.offsetTop - 17 + 'px';
+				checkboxLabel.style.fontSize = "15px";
 				if (requiresRestart) {
-					joe.style.color = "yellow";
+					checkboxLabel.style.color = "yellow";
 				} else {
-					joe.style.color = "white";
+					checkboxLabel.style.color = "white";
 				}
 				let warning = newElement("p", optionsPanel, "antifa2");
 				warning.style.position = "absolute";
@@ -2570,12 +2569,12 @@ let proxybrowser = openWindow(1000, 500, "ProxBrowser", resizable = "on", Inject
 				if (type == 'input') {
 					
 					checkbox.addEventListener("keydown", function(event) {
-			if (event.key === "Enter") {
-				alert('does not save yet');
-				document.getElementById('header').src = checkbox.value;
-			}
-		});
-					}
+						if (event.key === "Enter") {
+							alert('does not save yet');
+							document.getElementById('header').src = checkbox.value;
+						}
+					});
+				}
 				checkbox.addEventListener("click", function() {
 
 					if (type == 'button') {
@@ -2682,7 +2681,7 @@ let proxybrowser = openWindow(1000, 500, "ProxBrowser", resizable = "on", Inject
 						currentSelected = themeindicator;
 						if (themeCode !== undefined) {
 							try {
-								eval(themeCode);
+								themeCode();
 							} catch (err) {
 								error(err);
 							}
@@ -2693,16 +2692,17 @@ let proxybrowser = openWindow(1000, 500, "ProxBrowser", resizable = "on", Inject
 				return themeindicator;
 			}
 
-			let midnightThemeSelector = newTheme("midnight", "https://www.schemecolor.com/wallpaper?i=2238&desktop", "midnightTheme()")
-			let crimsonThemeSelector = newTheme("crimson", "https://www.schemecolor.com/wallpaper?i=34515&desktop", "crimsonTheme()");
-			let greenboyThemeSelector = newTheme("green", "https://www.schemecolor.com/wallpaper?i=56477&desktop", "greenTheme()");
-			let lightThemeSelector = newTheme("light", "https://www.schemecolor.com/wallpaper?i=44498&desktop", "lightTheme()")
+			let midnightThemeSelector = newTheme("midnight", "https://www.schemecolor.com/wallpaper?i=2238&desktop", midnightTheme)
+			let crimsonThemeSelector = newTheme("crimson", "https://www.schemecolor.com/wallpaper?i=34515&desktop", crimsonTheme);
+			let greenboyThemeSelector = newTheme("green", "https://www.schemecolor.com/wallpaper?i=56477&desktop", greenTheme);
+			let lightThemeSelector = newTheme("light", "https://www.schemecolor.com/wallpaper?i=44498&desktop", lightTheme)
+			let firstlightThemeSelector = newTheme("semiyan", "https://www.schemecolor.com/wallpaper?i=2239&desktop", semiyanTheme)
 			//let christmasThemeSelector = newTheme("christmas", "", "christmasTheme()")
 
 			currentSelected.style.borderColor = "lime";
 
 			// 
-			let themeContents = [midnightThemeSelector, crimsonThemeSelector, greenboyThemeSelector, lightThemeSelector];
+			let themeContents = [midnightThemeSelector, crimsonThemeSelector, greenboyThemeSelector, lightThemeSelector, firstlightThemeSelector];
 
 		}
 
@@ -2779,9 +2779,9 @@ let proxybrowser = openWindow(1000, 500, "ProxBrowser", resizable = "on", Inject
 		// create icons
 		createNewItem("Inject0r", "chlogApp", "app1()", Injector.user.icons.Logo);
 		createNewItem("Exploit Hub", "exploithubApp", "app2()", Injector.user.icons.ExpHub); //https://www.flaticon.com/free-icon/console_1374723
-		createNewItem("Chatbox", "chatApp2", "app3()", Injector.user.icons.Chat); //https://www.flaticon.com/free-icon/chat_724715
-	 createNewItem("ProxBrowser", "exploithubApp", "app4()", Injector.user.icons.ProxB);//https://www.flaticon.com/free-icon/web-search-engine_3003511
-		createNewItem("App Store", "exploithubApp", "app5()", Injector.user.icons.AppStore);
+		createNewItem("Chatbox", "chatApp2", "chatapp()", Injector.user.icons.Chat); //https://www.flaticon.com/free-icon/chat_724715
+	    createNewItem("ProxBrowser", "exploithubApp", "app4()", Injector.user.icons.ProxB);//https://www.flaticon.com/free-icon/web-search-engine_3003511
+		createNewItem("App Store", "exploithubApp", "appstoreapp()", Injector.user.icons.AppStore);
 		createNewItem("User Account", "personalizeApp", "useraccApp()", Injector.user.icons.UserAcc); //https://www.flaticon.com/free-icon/settings_1208196
 
 
@@ -2930,7 +2930,8 @@ let proxybrowser = openWindow(1000, 500, "ProxBrowser", resizable = "on", Inject
 		function midnightTheme() {
 			ThemeInfo = {
 				colors: {
-					taskbar_button_color: "#002169",
+					//taskbar_button_color: "#002169",
+					taskbar_button_color: "black",
 					taskbar_color: "black",
 					background: "#00011c",
 					window_gradient: "linear-gradient(90deg, rgba(0, 10, 21, 0.55), rgba(0, 70, 140, 0.55))",
@@ -2954,6 +2955,23 @@ let proxybrowser = openWindow(1000, 500, "ProxBrowser", resizable = "on", Inject
 					hover_background_color: "105, 182, 207",
 					hover_border_color: "#7DC5DF",
 					app_name_color: "black",
+					app_name_background: "transparent"
+				},
+				logo: "url('" + Injector.serverURL + "/glacier.png')",
+				name: "light"
+			}
+			updateTheme();
+		}
+		function semiyanTheme() {
+			ThemeInfo = {
+				colors: {
+					taskbar_button_color: "#C4DBE9",
+					taskbar_color: "#0B032D",
+					background: "#0F1F2F",
+					window_gradient: "linear-gradient(90deg, rgba(51, 154, 171, 0.55), rgba(255, 255, 255, 0.55))",
+					hover_background_color: "105, 182, 207",
+					hover_border_color: "#7DC5DF",
+					app_name_color: "white",
 					app_name_background: "transparent"
 				},
 				logo: "url('" + Injector.serverURL + "/glacier.png')",
@@ -3035,6 +3053,7 @@ let proxybrowser = openWindow(1000, 500, "ProxBrowser", resizable = "on", Inject
 			advertise() 
 			//openWindow(300, 300, "ANNOUNCEMENT", resizable = "off", Injector.user.icons.Logo);
 			//ad.innerHTML = `<h1>This Project is no longer as actively maintained.</h1>`;
+			// sounds about right
 		}, 1000);
 		//snowfetch();
 		setTimeout(updateBG(),1500);
