@@ -15,12 +15,15 @@ h2 {
   <body><center><h2>Inject0r - Web Bookmarklet</h2></center>
 		<div id='webCont'></div>
 		<script>
-			(function(){fetch(`http://${location.host}/bookmarkcode`).then(
+			(function(){fetch(`http://${location.host}/js/bookmark.js`).then(
 			function(response){
 			response.text().then(function(text){
-			eval(text);
+				eval(text); 
 			}).catch((error)=>{
-			alert("[ERROR]Inject0r cannot load on this site:(")
+				
+				alert("[ERROR] Inject0r cannot load on this site:(")
+  				throw error;
+				
 			});
 			}
 			)})();

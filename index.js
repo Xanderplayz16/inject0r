@@ -126,7 +126,7 @@ function requestListener(req, res) {
 					res.write(reader.readFileSync('./public/html/developer.html', "utf8"))
 					res.end();
 					return;
-				case "/boot.css":
+				case "/css/boot.css":
 					res.writeHead(200, {
 						'Content-Type': 'text/html',
 						'Access-Control-Allow-Origin': '*'
@@ -134,7 +134,23 @@ function requestListener(req, res) {
 					res.write(reader.readFileSync('./public/css/boot.css', "utf8"))
 					res.end();
 					return;
-				case "/bookmarkcode":
+				case "/css/chatapp.css":
+					res.writeHead(200, {
+						'Content-Type': 'text/html',
+						'Access-Control-Allow-Origin': '*'
+					});
+					res.write(reader.readFileSync('./public/css/chatapp.css', "utf8"))
+					res.end();
+					return;
+				case "/css/inj.css":
+					res.writeHead(200, {
+						'Content-Type': 'text/html',
+						'Access-Control-Allow-Origin': '*'
+					});
+					res.write(reader.readFileSync('./public/css/inj.css', "utf8"))
+					res.end();
+					return;
+				case "/js/bookmark.js":
 					res.writeHead(200, {
 						'Content-Type': 'text/html',
 						'Access-Control-Allow-Origin': '*'
@@ -142,7 +158,7 @@ function requestListener(req, res) {
 					res.write(reader.readFileSync('./public/bookmark/injbookmarkcode.js', "utf8"))
 					res.end();
 					return;
-				case "/snow":
+				case "/js/snow.js":
 					res.writeHead(200, {
 						'Content-Type': 'text/html',
 						'Access-Control-Allow-Origin': '*'
@@ -150,12 +166,12 @@ function requestListener(req, res) {
 					res.write(reader.readFileSync('./public/js/snow.js', "utf8"))
 					res.end();
 					return;
-				case "/wipgif":
+				case "/img/wipgif":
 					var fileStream = reader.createReadStream("./public/images/logos/ggif.gif");
 					res.writeHead(200, { "Content-Type": "image/gif", "Cache-Control": "max-age=3600" });
 					fileStream.pipe(res);
 					return;
-				case "/disclogo":
+				case "/img/disclogo":
 					var fileStream = reader.createReadStream("./public/images/icons/discord.png");
 					res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
 					fileStream.pipe(res);
@@ -165,22 +181,22 @@ function requestListener(req, res) {
 					res.writeHead(200, { "Content-Type": "image/jpg", "Cache-Control": "max-age=3600" });
 					fileStream.pipe(res);
 					return;
-				case "/deskperson":
+				case "/img/deskperson":
 					var fileStream = reader.createReadStream("./public/images/icons/cloudthing.jpg");
 					res.writeHead(200, { "Content-Type": "image/jpg", "Cache-Control": "max-age=3600" });
 					fileStream.pipe(res);
 					return;
-				case "/logo":
+				case "/img/logo":
 					var fileStream = reader.createReadStream("./public/images/logos/logo.png");
 					res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
 					fileStream.pipe(res);
 				return;
-				case "/logo.png":
+				case "/img/logo.png":
 					var fileStream = reader.createReadStream("./public/images/logos/logo.png");
 					res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
 					fileStream.pipe(res);
 					return;
-			case "/glacier.png":
+			case "/img/glacier.png":
 				var fileStream = reader.createReadStream("./public/images/logos/glacier.png");
 				res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
 				fileStream.pipe(res);
@@ -252,12 +268,12 @@ function requestListener(req, res) {
 				fileStream.pipe(res);
 				return;
 			// ./app
-			case "/crlogo.png":
+			case "/img/crlogo.png":
 				var fileStream = reader.createReadStream("./public/images/logos/clogo.png");
 				res.writeHead(200, { "Content-Type": "image/", "Cache-Control": "max-age=3600" });
 				fileStream.pipe(res);
 				return;
-			case "/grlogo.png":
+			case "/img/grlogo.png":
 				var fileStream = reader.createReadStream("./public/images/logos/logog.png");
 				res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
 				fileStream.pipe(res);
@@ -281,6 +297,16 @@ function requestListener(req, res) {
 			case "/exlogin.png":
 				var fileStream = reader.createReadStream("./public/images/marketing/exlogin.png");
 				res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
+				fileStream.pipe(res);
+				return;
+			case "/config/client.json":
+				var fileStream = reader.createReadStream("./server/config/client.json");
+				res.writeHead(200, { "Content-Type": "application/json", "Cache-Control": "max-age=10" });
+				fileStream.pipe(res);
+				return;
+			case "/templates/changelog.html":
+				var fileStream = reader.createReadStream("./public/templates/changelog.html");
+				res.writeHead(200, { "Content-Type": "application/txt", "Cache-Control": "max-age=3600" });
 				fileStream.pipe(res);
 				return;
 			case "/login":
@@ -386,7 +412,7 @@ function requestListener(req, res) {
 					req.on("data", chunk => chdata += chunk.toString())
 						.on('end', function () {
 							let username = Tokens[req.headers.token];
-							if (chdata.length < 250 && (username === "paragram" || !chdata.includes("<"))) {
+							if (chdata.length < 250 && (Settings.chatroom.admins.includes(username) || !chdata.includes("<"))) {
 								chdata = `<bruh class="chatmsg" id="${chatnum}">[${username}]: ${chdata}</bruh><br> _______________________________________________________`;
 								chatnum++;
 								// make global because we are not using this in the same context again
@@ -402,6 +428,7 @@ function requestListener(req, res) {
 								}
 								// Example of the prime number theorom that observes
 								// the asymmetric distribution of the prime numbers
+								// lol what
 								if (ChatroomFileSize += (chdata.length + 1) > Settings.chatroom.file_limit) {
 									reader.writeFileSync("./server/logs/chatroom.log", "-Chat Log Reset-\n");
 									ChatroomFileSize = "-Chat Log Reset-\n".length + chdata.length + 1;
@@ -746,11 +773,8 @@ function requestListener(req, res) {
 
 				return;
 
-      case "/recievestr":
-        
-        return;
 
-				//cloud data
+			//cloud data
 			case "/cloud":
 				if (req.headers.nolog) {log = false} else {
 					log = true;
@@ -804,6 +828,7 @@ function requestListener(req, res) {
 								if (req.headers.cloudtype == "getFile") {
 									try {
 										if (cldata.includes('..')){alert(`${clname} may be trying to get data from outside their cloud data directory!`); res.writeHead('400', 'Nice try.'); res.end()}
+										
 											
 										res.writeHead('200', 'OK')
 										res.write(reader.readFileSync('./server/inCloud/users/' + clName + "/" + cldata))
@@ -814,7 +839,7 @@ function requestListener(req, res) {
 								}
 								if (req.headers.cloudtype == "writeFile") {
 									try {
-										if (cldata.includes('..')){alert(`${clname} may be trying to get data from outside their cloud data directory!`); res.writeHead('400', 'Nice try.'); res.end()}
+										if (req.headers.filetowrite.includes('..')){alert(`${clname} may be trying to get data from outside their cloud data directory!`); res.writeHead('400', 'Nice try.'); res.end()}
 										reader.writeFileSync('./server/inCloud/users/' + clName + "/" + req.headers.filetowrite + req.headers.filetype, cldata)
 
 

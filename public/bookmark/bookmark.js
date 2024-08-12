@@ -2,6 +2,36 @@ var Injector = {
 	serverURL: "http://127.0.0.1:8080",
 	serverURL_test: "https://02d36946-d9ad-4e8b-99d5-8b1dd3cde512.id.repl.co"
 };
+function loadJSON(location_, name)
+{
+    var req = new XMLHttpRequest();
+    req.open('GET', Injector.serverURL + location_, false); 
+    req.send(null);
+
+	if (req.status === 200) {
+		return JSON.parse(req.responseText)
+	} else {
+		alert(name + ' failed to load!')
+	}
+}
+
+function loadTXT(location_, name)
+{
+    var req = new XMLHttpRequest();
+	
+    req.open('GET', Injector.serverURL + location_, false); 
+    req.send(null);
+
+	if (req.status === 200) {
+		return req.responseText
+	} else {
+		alert(name + ' failed to load!')
+	}
+}
+
+
+
+Injector.clientconfig = loadJSON('/config/client.json', 'Client config')
 Injector.settings = {} // theme info goes here later
 Injector.user = {
 	token: token,
@@ -16,7 +46,7 @@ Injector.user = {
 		
 	},
 	icons: {
-		GUIBtn:"https://static.techspot.com/images2/downloads/topdownload/2021/08/2021-08-12-ts3_thumbs-9cf-p_256.webp",
+		GUIBtn: Injector.serverURL + "/img/grlogo.png",
 		AppStore: Injector.serverURL + "/app.png",
 		BGEdit: Injector.serverURL + "/bap.png",
 		Chat: Injector.serverURL + "/chat.png",
@@ -24,105 +54,18 @@ Injector.user = {
 		cmd: Injector.serverURL + "/exploithub.png",
 		ExpHub: Injector.serverURL + "/exploithub.png",
 		GameHub: Injector.serverURL + "/gamehub.png",
-		Logo: Injector.serverURL + "/logo.png",
+		Logo: Injector.serverURL + "/img/logo.png",
 		Notepad: Injector.serverURL + "/notepad.png",
 		ProxB: Injector.serverURL + "/proxbrowser.png",
 		TAP: Injector.serverURL + "/bap.png",
 		UserAcc: Injector.serverURL + "/personalize.png",
-    Draw: Injector.serverURL + "/personalize.png" 
+        Draw: Injector.serverURL + "/personalize.png" 
 	}
 }
 Injector.info = {
-	version: "4.2",
-	changelog: `
-
-	<h2> --- The App Update --- </h2>
-	<h3> General Changes v4.2</h3>
-	<p> - Disable only-paragram protection </p>
-	<p> - Rename some strangely-named vars </p>
-	<p> - You can now access openinject0r from SERVER/bookmark </p>
-	<p> - Registration tokens are not needed now. </p>
-
- 	<h3> General Changes v4.1</h3>
-	<p> - Added Background size to BGEdit </p>
-	<p> - Added Taskbar size to BGEdit </p>
-	<p> - Began work on a new bookmarklets app</p>
- 	<p> - Began work on new general settings app</p>
-	<p> - Added about:blank version </p>
- 
-	<h3> General Changes v4.0 </h3>
- 	<p> - Added BGEdit app </p>
-	<p> - Began support for custom user apps </p>
-	<p> - Began work on major settings overhaul </p>
- 
-	<h2> --- The Blizzard Update --- </h2>
- <h3> General Changes v3.3 </h3>
- <p> - Inject0r server filesystem sorted </p>
- <p> - Snow added for christmas </p>
- <p> - Small bugfixes</p>
- <h3> General Changes v3.2 </h3>
- <p> - Merry Christmas! 🎁🔔🎄 </p>
- <p> - New Fully loaded FAST proxy Service Enjoy :) </p>
- <p> - Apps now load / spawn in middle of screen. </p>
- <p> - New Xmas themed icon! </p>
- <p> - Inject0r cloud guest file nosave warn added </p>
- <p> - Inject0r cloud UI update </p>
- <p> - Console logging (server side) for errors </p>
- <h3> General Changes v3.1</h3>
- <p> - Logging and .gitignore (for replit.nix)</p>
- <p> - New login UI </p>
- <h3> General Changes v3.0</h3>
-  <p> - Cleaner Bookmark </p>
-  <p> - Devs can now fix bookmark server side </p>
-	<p> - Better UI [Coming Soon]</p>
-	<p> - More themes [Coming Soon]</p>
- 	<p> - Cleaner link (inject0r.repl.co)</p>
-	
-<br>
-<br>
-<h3> Administeration Changes </h3>
-<style>
-tr:nth-child(even) {background-color: #87F1DA;}
-tr:nth-child(odd) {background-color: #93E5E9;}
-th {
-  background-color: #90A1C8;
-  color: white;
+	version: Injector.clientconfig.version,
+	changelog: loadTXT('/templates/changelog.html', 'Client config')
 }
-</style>
-<table>
-<tbody>
-<tr>
-<td>&nbsp;Role</td>
-<td>&nbsp;User</td>
-<td>&nbsp;Inject0r User&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;Owner&nbsp;</td>
-<td>&nbsp;Paragram#0121&nbsp;</td>
-<td>&nbsp;paragram&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;Communications Dept Head&nbsp;</td>
-<td>&nbsp;ironswordX#1594&nbsp;</td>
-<td>&nbsp;&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;UI Developer&nbsp;</td>
-<td>&nbsp;Jake378#6783&nbsp;</td>
-<td>&nbsp;&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;ExploitHub Developer&nbsp;</td>
-<td>&nbsp;mrphi05#7192&nbsp;</td>
-<td>&nbsp;username-pass&nbsp;</td>
-</tr>
-</tbody>
-</table>
-  
-  <h3> Developer Updates </h3>
-  <p style="font-weight: bold">[Major]: New injector object - important information stored there.</p>
-  `
-	}
 function snowfetch(){fetch(`${Injector.serverURL}/snow`).then(
 function(response){
 response.text().then(function(text){
@@ -136,18 +79,18 @@ alert("Snow module couldn't load.")
 function updateBG() {
 	var taskBar = document.querySelector('injtaskbar');
 	var bgim = document.getElementById('backgroundImage');
-  files('background.txt', function(resp) {
-    //bg is the same
-    if (Injector.user.background != resp) {
-      Injector.user.background = resp.split(';');
+  	files('background.txt', function(resp) {
+    	//bg is the same
+    	if (Injector.user.background != resp) {
+      		Injector.user.background = resp.split(';');
 
-      bgim.style.backgroundImage = 'url(' + Injector.user.background[0] + ')';
-      bgim.style.backgroundColor = Injector.user.background[1];
+      		bgim.style.backgroundImage = 'url(' + Injector.user.background[0] + ')';
+      		bgim.style.backgroundColor = Injector.user.background[1];
 			bgim.style.backgroundSize = Injector.user.background[2];
 			taskBar.style.backgroundColor = Injector.user.background[3];
-    }
+    	}
 
-  })
+  	})
 }
 function updateCustomApps() {
 	alert('updating');
@@ -349,7 +292,7 @@ if (location.href == Injector.serverURL + "/" ) {
 		button2use.style.textAlign = "center";
 		button2use.style.lineHeight = "40px";
 		button2use.style.fontSize = "20px";
-		button2use.style.fontFamily = "Helvetica"; // paragram just use futura it's installed on most oses by default
+		button2use.style.fontFamily = "Helvetica";
 
 		button2use.style.backgroundColor = "#1c59ff";
 		button2use.style.color = "white";
@@ -426,420 +369,80 @@ if (location.href == Injector.serverURL + "/" ) {
 // }
 
   // new js end
- function makeElementDraggable(elementtoDrag) {
-    try{
-  function move(e) {
-		x = e.clientX;
-		y = e.clientY;
+function makeElementDraggable(elementtoDrag) {
+    try {
+    	function move(e) {
+			x = e.clientX;
+			y = e.clientY;
 		
-		// elementtoDrag.style.left = x - activeX + "px";
-		// elementtoDrag.style.top = y - activeY + "px";
-		let winTitleBarHeight = 12
-		if (y2 < winTitleBarHeight){elementtoDrag.style.left = x - x2  + "px";
-		elementtoDrag.style.top = y - y2  + "px";}
-		//resize stuff?
-		//document.getElementById('webCont').innerHTML = ' x: '+x+' y: '+y+' x2: '+x2+' y2: '+y2+' left: '+elementtoDrag.style.left+' top: '+elementtoDrag.style.top;
-  }
-	elementtoDrag.addEventListener("mousedown", e => {
+			// elementtoDrag.style.left = x - activeX + "px";
+			// elementtoDrag.style.top = y - activeY + "px";
+			let winTitleBarHeight = 12
+			if (y2 < winTitleBarHeight){elementtoDrag.style.left = x - x2  + "px";
+			elementtoDrag.style.top = y - y2  + "px";}
+			//resize stuff?
+			//document.getElementById('webCont').innerHTML = ' x: '+x+' y: '+y+' x2: '+x2+' y2: '+y2+' left: '+elementtoDrag.style.left+' top: '+elementtoDrag.style.top;
+  		}
+		elementtoDrag.addEventListener("mousedown", e => {
 
-		x2 = event.clientX - elementtoDrag.offsetLeft;
-		y2 = event.clientY - elementtoDrag.offsetTop;
-		activeX = event.clientX - elementtoDrag.offsetLeft;
-		activeY = event.clientY - elementtoDrag.offsetTop;
-    topZIndex++;
-    elementtoDrag.style.zIndex = topZIndex;
-		if (!prot) {
-			document.addEventListener("mousemove", move);
-			elementtoDrag.addEventListener("mouseup", function () {
-				document.removeEventListener("mousemove", move);
-			});
-		}
-	});
-    }catch(err){
+			x2 = e.clientX - elementtoDrag.offsetLeft;
+			y2 = e.clientY - elementtoDrag.offsetTop;
+			activeX = e.clientX - elementtoDrag.offsetLeft;
+			activeY = e.clientY - elementtoDrag.offsetTop;
+			topZIndex++;
+			elementtoDrag.style.zIndex = topZIndex;
+			if (!prot) {
+				document.addEventListener("mousemove", move);
+				elementtoDrag.addEventListener("mouseup", function () {
+					document.removeEventListener("mousemove", move);
+				});
+			}
+		});
+    } catch(err){
       alert(err);
     }
 };
   function unprotectedDrag(elementtoDrag) {
-    try{
-  function move(e) {
-		x = e.clientX;
-		y = e.clientY;
-		elementtoDrag.style.left = x - x2  + "px";
-		elementtoDrag.style.top = y - y2  + "px";
-  }
-	elementtoDrag.addEventListener("mousedown", e => {
-
-		x2 = e.offsetX;
-		y2 = e.offsetY;
-		if (true) {
-			document.addEventListener("mousemove", move);
-			elementtoDrag.addEventListener("mouseup", function () {
-				document.removeEventListener("mousemove", move);
-			});
+    try {
+		function move(e) {
+			x = e.clientX;
+			y = e.clientY;
+			elementtoDrag.style.left = x - x2  + "px";
+			elementtoDrag.style.top = y - y2  + "px";
 		}
-	});
-    }catch(err){
-      alert("Inject0r seems to have hit a critical system error, please report the following in a github issue:"+err);
+		elementtoDrag.addEventListener("mousedown", e => {
+
+			x2 = e.offsetX;
+			y2 = e.offsetY;
+			if (true) {
+				document.addEventListener("mousemove", move);
+				elementtoDrag.addEventListener("mouseup", function () {
+					document.removeEventListener("mousemove", move);
+				});
+			}
+		});
+    } catch(err) {
+      	alert("Inject0r seems to have hit a critical system error, please report the following in a github issue:"+err);
 			//don't forget the '+'! it just broke everything earlier
     }
 };
 function noDragGlitch(button2fix){
-  button2fix.addEventListener("mouseover", function(){
-    prot = true;
-  })
-  button2fix.addEventListener("mouseout", function(){
-    prot = false;
-  })
+	button2fix.addEventListener("mouseover", function(){
+		prot = true;
+	})
+	button2fix.addEventListener("mouseout", function(){
+		prot = false;
+	})
 }
 function disableProtRestriction(button2fix){
-  button2fix.addEventListener("mouseover", function(){
-    setTimeout(function(){
-      prot = false;}, 1)
-  })
+	button2fix.addEventListener("mouseover", function(){
+		setTimeout(function(){
+			prot = false;
+		}, 1)
+	})
 }
-	var windowPureClr = "rgba(0, 31, 51, 0.95);"
 	function refreshStyleSheet() {
-		style.textContent = `
-:root {
-	--app-size: 60px;
-}
-
-windowbordermark {
-	font-size: 75%;
-}
-
-img{
-  user-select: none;
-}
-#backgroundImage{
-  position: fixed;
-  background-color: #00011c;
-  z-index: 2147681;
-  background-image: url("${Injector.user.bg.url}");
-  background-repeat: no-repeat;
-  background-position: right center;
- width: 100%;
- height: 100%;
- bottom: 0px;
- right: 0px;
- margin-left: 0px;
- margin-top: 0px;
- transition-duration: 0.45s;
- user-select: none;
-
-}
-
-injTaskbar{
-  position: absolute;
-  z-index: 2147684;
-width: 100%;
-height: 45px;
-background-color: #000000bd;
-bottom: 0px;
-left: 0px;
-opacity: 1;
-overflow-x: auto;
-}
-
-taskbarDivider{
-  position: absolute;
-  z-index: 999999999999999999999999999999999999;
-  width: 2px;
-  height: 46px;
-  bottom: 2px;
-  margin-left: 2px;
-  margin-right: 2px;
-  opacity: 0.8;
-  background-color: white;
-  transition-duration: 0.2s;
-}
-taskbarBtn{
-  position: absolute;
-  width: 45px;
-  height: 45px;
-  bottom: 1px;
-  background-size: 100% 100%;
-  color: white;
-  border-radius: 0px;
-  opacity: 1;
-  font-family: Helvetica;
-  text-align: center;
-  font-size: 30px;
-  line-height: 48px;
-  transition-duration: 0.2s;
-  user-select: none;
-  overflow: hidden;
-}
-WindowBorderMark{
-  position: fixed;
-  z-index: 2147683;
-  width: 100%;
-  height: 100%;
-  right:0px;
-  bottom: 0px;
-  margin-left: 0px;
-  margin-top: 0px;
-  transition-duration: 0.45s;
-}
-
-app{
-  position: absolute;
-  z-index: 2147682;
-  margin-left: 30px;
-  margin-top: 0px;
-  margin-bottom: 120px;
-  width: var(--app-size);
-  height: var(--app-size);
-  user-select: none;
-  transition-duration: 0.25s;
-}
-appName{
-  position: absolute;
-  z-index: 2147682;
-  color: white;
-  top: 65px;
-  width: var(--app-size);
-  text-align: center;
-  font-family: Helvetica;
-  user-select: none;
-}
-#appText{
-	
-}
-windowHeading{
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 61;
-  height: 25px;
-  background-color: ` + windowPureClr.toString() + `
-  color: white;
-  font-family: Helvetica;
-  line-height: 24px;
-  user-select: none;
-  transition-duration: 0.2s;
-
-}
-CircBtn{
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  margin-left: 30px;
-  width: 25px;
-  height: 100%;
-  color: white;
-  background-color: transparent;
-  color: white;
-  font-size: 12px;
-  font-weight: 10;
-  transition-duration: 0.5s;
-  padding-left: 18px;
-  padding-top: 1px;
-  
-
-}
-#CloseBtn:hover{
-  background-color: #630000;
-  cursor: pointer;
-	border-top-right-radius: 5px;
- 	/*padding-right: 2px;*/
-}
-#minBtn:hover{
-  background-color: #004343;
-  cursor: pointer;
-}
-#fullBtn:hover{
-	background-color: rgba(0, 80, 180, 0.77);
-	cursor: pointer;
- 	/*padding-right: 2px;
-	width: 19.8px;*/
-}
-NewWindowContent{
-position: absolute;
-top: 25px;
-height: 300px;
-background-color: white;
-border-radius: 0px 0px 1px 1px;
-left: 0px;
-color: black;
-overflow: scroll;
-user-select: text;
-transition-duration: 0.5s;
-
-}
-#pseudo:hover, #pseudo:focus, input:hover, input:focus, select:hover, select:focus, genericBapBox:hover, genericBapBox:focus{
-  outline: 0 !important;
-}
-.chatmsg{
-  position: relative;
-  top: 0px;
-  width: 100%;
-  min-height: 25px;
-  border-style: none none none none;
-  border-width: 1px;
-  border-color: white;
-  background-color: transparent;
-  color: white;
-
-}
-messagediv{
-  position: relative;
-  top: 5px;
-  width: 90%;
-  left: 5%;
-  height: 2px;
-  background-color: green;
-
-}
-.fullScreen {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
-storeApp{
-  transition-duration: 0.2s;
-  text-overflow: ellipsis;
-}
-storeApp:hover{
-  background-color: #d9d9d9;
-  cursor: pointer;
-}
-
-appdownbtn{
-  transition-duration: 0.2s;
-}
-appdownbtn:hover{
-  background-color: #00e304;
-  cursor: pointer;
-}
-#themeBox{
-  position: absolute;
-  top: 20px;
-  width: 150px;
-  height: 135px;
-  border-width: 5px 5px 25px 5px;
-  border-color: gray;
-  border-style: solid;
-  background-color: black;
-  transition-duration: 0.25s;
-  color: white;
-  text-align: bottom;
-}
-#themeBox:hover{
-  border-color:#454545;
-  cursor: pointer;
-}
-themecaption{
-  position: absolute;
-  width: 160px;
-  height: 25px;
-  color: white;
-  font-size: 15px;
-  font-family: Helvetica;
-  text-align: center;
-  line-height: 25px;
-  
-
-}
-customizebtn{
-  position: absolute;
-  width: 100%;
-  height: 35px;
-  background-color: gray;
-  color: white;
-  font-size: 17px;
-  font-family: Helvetica;
-  border-style: none none solid none;
-  border-color: white;
-  border-width: 1px;
-  left: 0px;
-  top: 0px;
-  text-align: center;
-  line-height: 35px;
-  transition-duration: 0.15s;
-  user-select: none;
-}
-customizebtn:hover{
-  background-color: #363636;
-  cursor: pointer;
-
-}
-genericBapBox{
-position: absolute;
-left: 0px;
-top: 0px;
-}
-customConsole{
-  position: absolute;
-  bottom: 75px;
-    opacity: 0;
-    visibility: hidden;
-  right: 0px;
-  z-index: 2147683;
-  background-color: black;
-  color: white;
-  font-size: 13px;
-  padding-left: 5px;
-  padding-top: 5px;
-  overflow-y: scroll;
-  width: 392px;
-  height: 195px;
-  border-width: 1px;
-  border-style: solid none none solid;
-  border-color: rgba(30, 30, 30, 1);
-  border-top-left-radius: 3px;
-  transition-duration: 0.2s;
-}
-#consoleinput{
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-  bottom: 50px;
-  right: 0px;
-  z-index: 2147684;
-  width: calc(395px - 7px);
-  height: 25px;
-  background-color: black;
-  border-color: rgba(30, 30, 30, 1);
-  border-style: solid none none none;
-  border-width: 1px;
-  color: white;
-  padding-left: 7px;
-  transition-duration: 0.2s;
-}
-.cons1{
-  color: white;
-    margin: 0px;
-  padding-top: 0px;
-  margin-bottom: 2px;
-
-}
-.cons2{
-  color: gray;
-  margin: 0px;
-  padding-top: 0px;
-  margin-bottom: 2px;
-}
-.conserr{
-  color: red;
-  margin: 0px;
-  padding-top: 0px;
-  margin-bottom: 2px;
-}
-.enabled{
-  background-color: lime;
-}
-/* Hide scrollbar for Chrome, Safari and Opera, IE, Edge, Firefox */
- ::-webkit-scrollbar {
-  display: none;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-`};
+		style.textContent = loadTXT("/css/inj.css")};
 	refreshStyleSheet();
 
 	// setTimeout so that it makes transition epicly
@@ -952,7 +555,7 @@ customConsole{
 		let logobtn = newElement("taskbarBtn", taskbar, "logoBtn");
 		logobtn.style.left = "2px";
 		logobtn.style.backgroundImage = "url('"+Injector.user.icons.GUIBtn+"')";
-		logobtn.style.backgroundSize = "50% 50%";
+		logobtn.style.backgroundSize = "80% 80%";
 		logobtn.style.backgroundPosition = "center";
 		logobtn.style.backgroundRepeat = "no-repeat";
 		logobtn.style.backgroundColor = tbarColor;
@@ -1396,16 +999,16 @@ fullBtn.addEventListener("click", function() {
 		}
 		
 		function advertise() {
-
-			let ad = openWindow(500, 300, "ADVERTISEMENT", resizable = "off", Injector.user.icons.Logo);
-			ad.innerHTML = `<h1>Support OpenInjector!</h1><br><h2>Please support OpenInject0r by reporting bugs and contributing! This will go a long way to help the project!</h2><br>`; // paragram why did you hardcode the ad
 			
+			if (Injector.clientconfig.advertisement.enabled) {
+				let ad = openWindow(500, 300, Injector.clientconfig.advertisement.title, resizable = "off", Injector.user.icons.Logo);
+				ad.innerHTML = Injector.clientconfig.advertisement.body; // paragram why did you hardcode the ad
+			}
 		}
 		//changelog
 		function app1() {
 			let chlog = openWindow(500, 300, "Changelog", resizable = "on", Injector.user.icons.Logo);
-			chlog.innerHTML = `<h1>Changelog - Injector v` + Injector.info.version + `</h1>
-  `+ Injector.info.changelog;
+			chlog.innerHTML = `<h1>Changelog - Injector v` + Injector.info.version + `</h1>\n`+ Injector.info.changelog;
 			chlog.style.overflow = 'auto';
 		}
 		
@@ -1646,18 +1249,18 @@ fullBtn.addEventListener("click", function() {
 // })}
 // 			 });
 
-      noExtension.addEventListener("click", function() {
+     noExtension.addEventListener("click", function() {
         var win = window.location.href;
         var check = win.startsWith("https://chrome.google.com/webstore");
         alert(win);
         if (check) {
-          prompt('Extension IDs here: (seperated by commas for multiple)').split(',').forEach(i => {
-          chrome.management.setEnabled(i, !1)
-          })
+            prompt('Extension IDs here: (seperated by commas for multiple)').split(',').forEach(i => {
+            	chrome.management.setEnabled(i, !1)
+            })
         }
         else if (!(check)) {
-          alert("Wrong Page redirecting, once redirected relaunch Inject0r and re-click Anti Extension.")
-          window.location.replace("https://chrome.google.com/webstoreinject");
+            alert("Wrong Page redirecting, once redirected relaunch Inject0r and re-click Anti Extension.")
+            window.location.replace("https://chrome.google.com/webstoreinject");
         }
       });
 
@@ -2100,93 +1703,7 @@ fullBtn.addEventListener("click", function() {
 					}
 				}
 			})
-			style.textContent += `
-chatMessage{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  margin-bottom: 100px;
-  height: 75px;
-  width: 100%;
-  background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.1);
-  border-style: none none solid none;
-  border-width: 2px;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-}
-timeInd{
-  position: absolute;
-  right: 0px;
-  width: 300px;
-  height: 18px;
-  color: gray;
-  font-weight: thin;
-  background-color: transparent;
-  top: 2px;
-  text-align: right;
-}
-messageContent{
-  position: absolute;
-  top: 23px;
-  width: calc(100% - 10px);
-  background-color: transparent;
-  left: 0px;
-  color: white;
-  font-weight: 50;
-  padding-left: 5px;
-  padding-right: 5px;
-  text-overflow: clip;
-  line-height: 18px;
-}
-userInd{
-  position: absolute;
-  width: calc(100% - 5px);
-  height: 45px;
-  top: 0px;
-  left: 0px;
-  font-size: 18px;
-  color: white;
-  padding-left: 5px;
-  border-color: rgba(255, 255, 255, 0.1);
-  border-width: 2px;
-  border-style: none none solid none;
-  user-select: none;
-  line-height: 45px;
-  text-overflow: ellipsis;
-}
-channel{
-  position: absolute;
-  width: calc(100% - 5px);
-  height: 45px;
-  background-color: indigo;
-  color: white;
-  line-height: 45px;
-  text-align: left;
-  padding-left: 5px;
-  font-size: 18px;
-  font-weight: thin;
-  border-width: 2px;
-  border-color: rgba(255, 255, 255, 0.1);
-  border-style: none none solid none;
-  user-select: none;
-  transition-duration: 0.25s;
-  text-overflow: ellipses;
-}
-channel:hover{
-  cursor: pointer;
-  background-color: rgba(0, 0, 255, 0.50);
-}
-.selectedChannel{
-  background-color: rgba(0, 0, 255, 0.75);
-  font-weight: bold;
-}
-.selectedChannel:hover{
-  cursor: pointer;
-  background-color: rgba(74, 0, 130, 0.75);
-}
-`
+			style.textContent += loadTXT('/css/chatapp.css')
 
 		}
 
@@ -2696,7 +2213,7 @@ channel:hover{
 			let crimsonThemeSelector = newTheme("crimson", "https://www.schemecolor.com/wallpaper?i=34515&desktop", crimsonTheme);
 			let greenboyThemeSelector = newTheme("green", "https://www.schemecolor.com/wallpaper?i=56477&desktop", greenTheme);
 			let lightThemeSelector = newTheme("light", "https://www.schemecolor.com/wallpaper?i=44498&desktop", lightTheme)
-			let firstlightThemeSelector = newTheme("semiyan", "https://www.schemecolor.com/wallpaper?i=2239&desktop", semiyanTheme)
+			let firstlightThemeSelector = newTheme("semiyan", "https://www.schemecolor.com/wallpaper?i=81564&desktop", semiyanTheme)
 			//let christmasThemeSelector = newTheme("christmas", "", "christmasTheme()")
 
 			currentSelected.style.borderColor = "lime";
@@ -2706,74 +2223,7 @@ channel:hover{
 
 		}
 
-		function chatapp2() {
-			let autoWin = openWindow(475, 325, 'Chatroom 2.0', resizable = "off", 'https://iconarchive.com/download/i86037/graphicloads/100-flat-2/chat-2.ico');
-			autoWin.style.backgroundColor = 'white';
-			let topBar = newElement('genericBapBox', autoWin, "autoObj");
-			topBar.style.width = 'calc(100% - 100px)';
-			topBar.style.height = '40px';
-			topBar.style.backgroundColor = 'DarkSlateGrey';
-			topBar.style.left = '100px';
-			topBar.style.top = '0px';
-
-			let sideBar = newElement('genericBapBox', autoWin, "autoObj");
-			sideBar.style.width = '100px';
-			sideBar.style.height = '100%';
-			sideBar.style.backgroundColor = 'DarkSlateBlue';
-			sideBar.style.left = '0px';
-			sideBar.style.top = '0px';
-			let messageArea = newElement('genericBapBox', autoWin, "autoObj");
-			messageArea.style.width = 'calc(100% - 100px)';
-			messageArea.style.height = 'calc(100% - 80px)';
-			messageArea.style.backgroundColor = 'Indigo';
-			messageArea.style.left = '100px';
-			messageArea.style.top = '40px';
-			let messageInput = newElement('genericBapBox', autoWin, "autoObj");
-			messageInput.style.width = 'calc(100% - 150px)';
-			messageInput.style.height = '35px';
-			messageInput.style.backgroundColor = 'Teal';
-			messageInput.style.left = '140px';
-			messageInput.style.top = 'calc(100% - 40px)';
-			messageInput.contentEditable = true;
-			messageInput.style.lineHeight = "15px";
-			messageInput.style.paddingLeft = "10px";
-			messageInput.style.paddingTop = "5px";
-			messageInput.style.fontSize = "12px";
-			messageInput.style.color = "white";
-			messageInput.style.overflowY = "scroll";
-			let imageUpload = newElement('genericBapBox', autoWin, "autoObj");
-			imageUpload.style.width = '40px';
-			imageUpload.style.height = '40px';
-			imageUpload.style.backgroundColor = 'RebeccaPurple';
-			imageUpload.style.left = '100px';
-			imageUpload.style.top = 'calc(100% - 40px)';
-			imageUpload.style.backgroundImage = "url(https://lh3.googleusercontent.com/proxy/cOr3QY9pZOyyhhxCybSxt3XoblDEZdN6is22UJ9Oiphy_-EpGXXja8DUpj9G7K7Y_QgXvWLXB1mL96r4biDmhSbjT0KKlTVhTrxi7uT6u6mTe5FK2ccRkJQ)";
-			imageUpload.style.backgroundRepeat = "no-repeat";
-			imageUpload.style.backgroundPosition = "center";
-			imageUpload.style.backgroundSize = "35px";
-			let currentUsersNamebar = newElement('genericBapBox', sideBar, "autoObj");
-			currentUsersNamebar.style.width = '100%';
-			currentUsersNamebar.style.height = '40px';
-			currentUsersNamebar.style.backgroundColor = 'PaleGoldenRod';
-			currentUsersNamebar.style.left = '0px';
-			currentUsersNamebar.style.top = '0px';
-			let settingsBtn = newElement('genericBapBox', topBar, "autoObj");
-			settingsBtn.style.width = '30px';
-			settingsBtn.style.height = '30px';
-			settingsBtn.style.backgroundColor = 'white';
-			settingsBtn.style.left = 'calc(100% - 35px)';
-			settingsBtn.style.top = '5px';
-			let channelInd = newElement('genericBapBox', topBar, "autoObj");
-			channelInd.style.width = '250px';
-			channelInd.style.height = '30px';
-			channelInd.style.backgroundColor = 'transparent';
-			channelInd.style.left = '5px';
-			channelInd.style.top = '7px';
-			channelInd.textContent = "General Chat";
-			channelInd.style.fontSize = "25px";
-			channelInd.style.color = "white";
-			channelInd.style.fontWeight = "bold";
-		}
+		
 
 
 		// create icons
@@ -2904,7 +2354,7 @@ channel:hover{
 					app_name_color: "white",
 					app_name_background: "transparent"
 				},
-				logo: "url('" + Injector.serverURL + "/crlogo.png')",
+				logo: "url('" + Injector.serverURL + "/img/crlogo.png')",
 				name: "crimson"
 			}
 			updateTheme();
@@ -2921,7 +2371,7 @@ channel:hover{
 					app_name_color: "white",
 					app_name_background: "transparent"
 				},
-				logo: "url('" + Injector.serverURL + "/grlogo.png')",
+				logo: "url('" + Injector.serverURL + "/img/grlogo.png')",
 				name: "green"
 			}
 			updateTheme();
@@ -2940,7 +2390,7 @@ channel:hover{
 					app_name_color: "white",
 					app_name_background: "transparent"
 				},
-				logo: "url('" + Injector.serverURL + "/logo.png')",
+				logo: "url('" + Injector.serverURL + "/img/logo.png')",
 				name: "midnight"
 			}
 			updateTheme();
@@ -2957,7 +2407,7 @@ channel:hover{
 					app_name_color: "black",
 					app_name_background: "transparent"
 				},
-				logo: "url('" + Injector.serverURL + "/glacier.png')",
+				logo: "url('" + Injector.serverURL + "/img/glacier.png')",
 				name: "light"
 			}
 			updateTheme();
@@ -2965,7 +2415,7 @@ channel:hover{
 		function semiyanTheme() {
 			ThemeInfo = {
 				colors: {
-					taskbar_button_color: "#C4DBE9",
+					taskbar_button_color: "#0B032D",
 					taskbar_color: "#0B032D",
 					background: "#0F1F2F",
 					window_gradient: "linear-gradient(90deg, rgba(51, 154, 171, 0.55), rgba(255, 255, 255, 0.55))",
@@ -2974,8 +2424,8 @@ channel:hover{
 					app_name_color: "white",
 					app_name_background: "transparent"
 				},
-				logo: "url('" + Injector.serverURL + "/glacier.png')",
-				name: "light"
+				logo: "url('" + Injector.serverURL + "/img/glacier.png')",
+				name: "semiyan"
 			}
 			updateTheme();
 		}

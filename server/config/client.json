@@ -1,0 +1,8 @@
+{
+    "version": "4.2",
+    "advertisement": {
+        "enabled": true,
+        "title": "ADVERTISEMENT",
+        "body": "<h1>Support OpenInjector!</h1><br><h2>Please support OpenInject0r by reporting bugs and contributing! This will go a long way to help the project!</h2><br>"
+    }
+}
