@@ -85,117 +85,133 @@ function requestListener(req, res) {
 	
 	try {
 		switch (req.url) {
-				case "/inj":
-					res.writeHead(200, {
-						'Content-Type': 'text/html',
-						'Access-Control-Allow-Origin': '*'
-					});
-					res.write(reader.readFileSync('./public/html/confuse.html', "utf8"))
-					res.end();
-				return;
+			case "/inj":
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./public/html/confuse.html', "utf8"))
+				res.end();
+			return;
 
-				case "/bookmark":
-					res.writeHead(200, {
-						'Content-Type': 'text/html',
-						'Access-Control-Allow-Origin': '*'
-					});
-					res.write(reader.readFileSync('./public/html/bookmark.html', "utf8"))
-					res.end();
+			case "/bookmark":
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./public/html/bookmark.html', "utf8"))
+				res.end();
+			return;
+			case "/bmls":
+				res.writeHead(200, {
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./server/data/bookmarklets.json', "utf8"))
+				res.end();
+			return;
+			
+			case "/devbookmark":
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./public/dev/index.html', "utf8"))
+				res.end();
+			case "/dev":
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./public/html/developer.html', "utf8"))
+				res.end();
 				return;
-				case "/bmls":
-					res.writeHead(200, {
-						'Content-Type': 'application/json',
-						'Access-Control-Allow-Origin': '*'
-					});
-					res.write(reader.readFileSync('./server/data/bookmarklets.json', "utf8"))
-					res.end();
+			case "/css/boot.css":
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./public/css/boot.css', "utf8"))
+				res.end();
 				return;
-				
-				case "/devbookmark":
-					res.writeHead(200, {
-						'Content-Type': 'text/html',
-						'Access-Control-Allow-Origin': '*'
-					});
-					res.write(reader.readFileSync('./public/dev/index.html', "utf8"))
-					res.end();
-				case "/dev":
-					res.writeHead(200, {
-						'Content-Type': 'text/html',
-						'Access-Control-Allow-Origin': '*'
-					});
-					res.write(reader.readFileSync('./public/html/developer.html', "utf8"))
-					res.end();
-					return;
-				case "/css/boot.css":
-					res.writeHead(200, {
-						'Content-Type': 'text/html',
-						'Access-Control-Allow-Origin': '*'
-					});
-					res.write(reader.readFileSync('./public/css/boot.css', "utf8"))
-					res.end();
-					return;
-				case "/css/chatapp.css":
-					res.writeHead(200, {
-						'Content-Type': 'text/html',
-						'Access-Control-Allow-Origin': '*'
-					});
-					res.write(reader.readFileSync('./public/css/chatapp.css', "utf8"))
-					res.end();
-					return;
-				case "/css/inj.css":
-					res.writeHead(200, {
-						'Content-Type': 'text/html',
-						'Access-Control-Allow-Origin': '*'
-					});
-					res.write(reader.readFileSync('./public/css/inj.css', "utf8"))
-					res.end();
-					return;
-				case "/js/bookmark.js":
-					res.writeHead(200, {
-						'Content-Type': 'text/html',
-						'Access-Control-Allow-Origin': '*'
-					});
-					res.write(reader.readFileSync('./public/bookmark/injbookmarkcode.js', "utf8"))
-					res.end();
-					return;
-				case "/js/snow.js":
-					res.writeHead(200, {
-						'Content-Type': 'text/html',
-						'Access-Control-Allow-Origin': '*'
-					});
-					res.write(reader.readFileSync('./public/js/snow.js', "utf8"))
-					res.end();
-					return;
-				case "/img/wipgif":
-					var fileStream = reader.createReadStream("./public/images/logos/ggif.gif");
-					res.writeHead(200, { "Content-Type": "image/gif", "Cache-Control": "max-age=3600" });
-					fileStream.pipe(res);
-					return;
-				case "/img/disclogo":
-					var fileStream = reader.createReadStream("./public/images/icons/discord.png");
-					res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
-					fileStream.pipe(res);
-					return;
-				case "/adalert":
-					var fileStream = reader.createReadStream("./public/images/icons/advertise.jpg");
-					res.writeHead(200, { "Content-Type": "image/jpg", "Cache-Control": "max-age=3600" });
-					fileStream.pipe(res);
-					return;
-				case "/img/deskperson":
-					var fileStream = reader.createReadStream("./public/images/icons/cloudthing.jpg");
-					res.writeHead(200, { "Content-Type": "image/jpg", "Cache-Control": "max-age=3600" });
-					fileStream.pipe(res);
-					return;
-				case "/img/logo":
-					var fileStream = reader.createReadStream("./public/images/logos/logo.png");
-					res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
-					fileStream.pipe(res);
+			case "/css/chatapp.css":
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./public/css/chatapp.css', "utf8"))
+				res.end();
 				return;
-				case "/img/logo.png":
-					var fileStream = reader.createReadStream("./public/images/logos/logo.png");
-					res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
-					fileStream.pipe(res);
-					return;
+			case "/css/inj.css":
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./public/css/inj.css', "utf8"))
+				res.end();
+				return;
+			case "/js/bookmark.js":
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./public/bookmark/injbookmarkcode.js', "utf8"))
+				res.end();
+				return;
+			case "/js/snow.js":
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./public/js/snow.js', "utf8"))
+				res.end();
+				return;
+			case "/apps/appStore.js":
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./server/apps/default/appstoreApp.js', "utf8"))
+				res.end();
+				return;
+			case "/apps/chatroom.js":
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Access-Control-Allow-Origin': '*'
+				});
+				res.write(reader.readFileSync('./server/apps/default/chatroomApp.js', "utf8"))
+				res.end();
+				return;
+			case "/img/wipgif":
+				var fileStream = reader.createReadStream("./public/images/logos/ggif.gif");
+				res.writeHead(200, { "Content-Type": "image/gif", "Cache-Control": "max-age=3600" });
+				fileStream.pipe(res);
+				return;
+			case "/img/disclogo":
+				var fileStream = reader.createReadStream("./public/images/icons/discord.png");
+				res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
+				fileStream.pipe(res);
+				return;
+			case "/adalert":
+				var fileStream = reader.createReadStream("./public/images/icons/advertise.jpg");
+				res.writeHead(200, { "Content-Type": "image/jpg", "Cache-Control": "max-age=3600" });
+				fileStream.pipe(res);
+				return;
+			case "/img/deskperson":
+				var fileStream = reader.createReadStream("./public/images/icons/cloudthing.jpg");
+				res.writeHead(200, { "Content-Type": "image/jpg", "Cache-Control": "max-age=3600" });
+				fileStream.pipe(res);
+				return;
+			case "/img/logo":
+				var fileStream = reader.createReadStream("./public/images/logos/logo.png");
+				res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
+				fileStream.pipe(res);
+			return;
+			case "/img/logo.png":
+				var fileStream = reader.createReadStream("./public/images/logos/logo.png");
+				res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
+				fileStream.pipe(res);
+				return;
 			case "/img/glacier.png":
 				var fileStream = reader.createReadStream("./public/images/logos/glacier.png");
 				res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "max-age=3600" });
@@ -348,7 +364,7 @@ function requestListener(req, res) {
             			writeLine("Credentials for " + username + " correct");
 
 						//generate auth token and save it into authtokens.json hopefully
-						let authtoken = Math.floor(Math.random() * 9999999999999) + 1000000000000;
+						let authtoken = Math.floor(Math.random() * 9999999999999) + 1000000000000; // TODO: make this use cryptographically secure rng
 						let token2 = authtoken.toString();
 						Tokens[token2] = username;
 						reader.writeFile('./server/data/authtokens.json', JSON.stringify(Tokens, null, 2), function (err) {
@@ -875,15 +891,12 @@ function requestListener(req, res) {
 							let registerAccount = (userTU, passTU) => {
 								let authFile = JSON.parse(reader.readFileSync('server/data/auths.json', 'utf8'));
 								if (authFile[userTU] == undefined && userTU !== "" && passTU !== "" && !(userTU.includes(":")) && !(userTU.includes(",")) && userTU.length < 23) {
-                  // new password stuff
-                  var salt = bcrypt.genSaltSync(10);
-                  var hashed = bcrypt.hashSync(passTU, salt);
-                  authFile[userTU] = hashed;
-									
-                  
-                  
-                  // old stuff
-                  // let hash = crypto.createHash("sha256");
+									// new password stuff
+									var salt = bcrypt.genSaltSync(10);
+									var hashed = bcrypt.hashSync(passTU, salt);
+									authFile[userTU] = hashed;
+									// old stuff
+									// let hash = crypto.createHash("sha256");
 									// hash.update(passTU);
 									// let hashpass = hash.digest("hex");
 									// authFile[userTU] = hashpass;
@@ -998,7 +1011,7 @@ function requestListener(req, res) {
       let array = updChat.statuses[i]
       if((array[1] - (new Date().getTime()) / 1000) <= -30) {
  		console.log(updChat["statuses"].splice(updChat["statuses"].indexOf(array), 1))
-        let removalIndex = updChat["statuses"].indexOf(array);
+        let removalIndex = updChat["statuses"].indexOf(array); // and this one
         let splicedResult = updChat["statuses"].splice(removalIndex, 1); // TODO: figure out the purpose of this code
         reader.writeFileSync('server/data/chatroom/chatroom2.json', JSON.stringify(updChat, null, 2));
        

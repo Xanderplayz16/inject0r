@@ -1,7 +1,9 @@
 {
   "guest": {
-    "theme": "semiyan",
+    "theme": "midnight",
     "personalize": [],
-    "apps": []
+    "apps": [
+      "Segfault"
+    ]
   }
 }

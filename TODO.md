@@ -2,7 +2,6 @@
 ### ToDo Now
 1. Find bugs and fix
 2. Make apps [Read here](https://github.com/Paragramex/inject0r/wiki)
-3. Resize apps fix
 4. Get advertisers
 5. Deal with [issues](https://github.com/Paragramex/inject0r/issues)
 6. make save function for BGEdit faster
@@ -20,7 +19,7 @@
 
 ### Things in progress:
 - bookmark login UI updated [still needs working on though\]
-- make logging better (if log is too big, make a new log) 
+- make logging better (if log is too big, make a new log) <!-- this won't save any space paragram, make it generate a new log every runtime! -->
 
 ### Done things: 
 

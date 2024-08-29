@@ -10,7 +10,8 @@
 		"scriptHub",
 		"BGEdit",
 		"bmlHub",
-		"draw"
+		"draw",
+    "Segfault"
   ],
   "appsReadable": [
 		[
@@ -47,7 +48,12 @@
 			"BGEdit",
 			"username-pass",
 			"Allows for customisation of the background"
-		]
+		],
+    [
+      "Segfault",
+      "xanderplayz16",
+      "Webapp for segfault (https://www.thc.org/segfault/)"
+    ]
 		
   ]
 }

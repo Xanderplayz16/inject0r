@@ -1,7 +1,7 @@
 # Selfhosting
 First, starting the server:
-`npm i` / `bun i` depending on js runtime,
-`node index.js` / `bun run index.js` to start inject0r.
+Install the dependencies, using bun / npm. `bun/npm i`.
+Then start it. `bun/npm start`.
 Just register an account, and go to `localhost:8080/bookmark` to test it out.
 It should work fine.
 If you plan on hosting your instance not on localhost, first head to `public/bookmark/injbookmarkcode.js`.
