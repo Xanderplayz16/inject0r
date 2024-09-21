@@ -1,9 +1,8 @@
 # Selfhosting
-First, starting the server:
-Install the dependencies, using bun / npm. `bun/npm i`.
-Then start it. `bun/npm start`.
-Just register an account, and go to `localhost:8080/bookmark` to test it out.
-It should work fine.
-If you plan on hosting your instance not on localhost, first head to `public/bookmark/injbookmarkcode.js`.
-Then, scroll down to line 146 and change the value of the variable to the location that you are hosting inject0r.
-Do the same on `public/bookmark/bookmark.js` on line 2.
+## Downloading
+Just `git clone` it.
+## Usage
+First, you need Bun, the preferred JS runtime for OpenInject0r. Just download it, or if you use Nix, use `nix-shell`.
+
+Once that's downloaded, just run `bun i` to install the dependencies, then start it with `bun start`.
+

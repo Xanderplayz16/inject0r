@@ -1735,3 +1735,374 @@
 [Thu, 29 Aug 2024 18:54:12 GMT] Status update recieved
 [Thu, 29 Aug 2024 18:54:12 GMT] guest,1724957622.306
 [Thu, 29 Aug 2024 18:54:12 GMT] User already in Statuses; time updated.
+[Thu, 29 Aug 2024 18:59:16 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Thu, 29 Aug 2024 18:59:21 GMT] Status update recieved
+[Thu, 29 Aug 2024 18:59:21 GMT] guest,1724957652.758
+[Thu, 29 Aug 2024 18:59:21 GMT] User already in Statuses; time updated.
+[Thu, 29 Aug 2024 18:59:51 GMT] Status update recieved
+[Thu, 29 Aug 2024 19:00:21 GMT] Status update recieved
+[Thu, 29 Aug 2024 19:00:21 GMT] guest,1724957991.7
+[Thu, 29 Aug 2024 19:00:21 GMT] User already in Statuses; time updated.
+[Thu, 29 Aug 2024 19:00:52 GMT] Status update recieved
+[Thu, 29 Aug 2024 19:00:52 GMT] guest,1724958021.918
+[Thu, 29 Aug 2024 19:00:52 GMT] User already in Statuses; time updated.
+[Thu, 29 Aug 2024 19:01:22 GMT] Status update recieved
+[Thu, 29 Aug 2024 19:01:22 GMT] guest,1724958052.231
+[Thu, 29 Aug 2024 19:01:22 GMT] User already in Statuses; time updated.
+[Thu, 29 Aug 2024 19:01:25 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Thu, 29 Aug 2024 19:01:30 GMT] Recieved login request from guest
+[Thu, 29 Aug 2024 19:01:30 GMT] Credentials for guest correct
+[Thu, 29 Aug 2024 19:01:30 GMT] Requesting bookmarklet content for guest
+[Thu, 29 Aug 2024 19:01:31 GMT] Recieved FTSave request from guest
+[Thu, 29 Aug 2024 19:01:31 GMT] Request recieved to Appstore
+[Thu, 29 Aug 2024 19:01:31 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Thu, 29 Aug 2024 19:01:31 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Thu, 29 Aug 2024 19:01:31 GMT] Same Copy detected!
+[Thu, 29 Aug 2024 19:01:33 GMT] Status update recieved
+[Thu, 29 Aug 2024 19:01:33 GMT] guest,1724958082.625
+[Thu, 29 Aug 2024 19:01:33 GMT] User already in Statuses; time updated.
+[Thu, 29 Aug 2024 19:19:29 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Thu, 29 Aug 2024 19:19:34 GMT] Recieved login request from guest
+[Thu, 29 Aug 2024 19:19:34 GMT] Credentials for guest correct
+[Thu, 29 Aug 2024 19:19:34 GMT] Requesting bookmarklet content for guest
+[Thu, 29 Aug 2024 19:19:34 GMT] Recieved FTSave request from guest
+[Thu, 29 Aug 2024 19:19:34 GMT] Request recieved to Appstore
+[Thu, 29 Aug 2024 19:19:34 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Thu, 29 Aug 2024 19:19:34 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Thu, 29 Aug 2024 19:19:34 GMT] Same Copy detected!
+[Thu, 29 Aug 2024 19:20:54 GMT] Recieved login request from guest
+[Thu, 29 Aug 2024 19:20:54 GMT] Credentials for guest correct
+[Thu, 29 Aug 2024 19:20:54 GMT] Requesting bookmarklet content for guest
+[Thu, 29 Aug 2024 19:20:54 GMT] Recieved FTSave request from guest
+[Thu, 29 Aug 2024 19:20:54 GMT] Request recieved to Appstore
+[Thu, 29 Aug 2024 19:20:54 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Thu, 29 Aug 2024 19:20:54 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Thu, 29 Aug 2024 19:20:54 GMT] Same Copy detected!
+[Thu, 29 Aug 2024 19:21:01 GMT] Recieved login request from guest
+[Thu, 29 Aug 2024 19:21:01 GMT] Credentials for guest correct
+[Thu, 29 Aug 2024 19:21:01 GMT] Requesting bookmarklet content for guest
+[Thu, 29 Aug 2024 19:21:02 GMT] Recieved FTSave request from guest
+[Thu, 29 Aug 2024 19:21:02 GMT] Request recieved to Appstore
+[Thu, 29 Aug 2024 19:21:02 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Thu, 29 Aug 2024 19:21:02 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Thu, 29 Aug 2024 19:21:02 GMT] Same Copy detected!
+[Thu, 29 Aug 2024 19:26:09 GMT] Recieved login request from guest
+[Thu, 29 Aug 2024 19:26:09 GMT] Credentials for guest correct
+[Thu, 29 Aug 2024 19:26:09 GMT] Requesting bookmarklet content for guest
+[Thu, 29 Aug 2024 19:26:10 GMT] Recieved FTSave request from guest
+[Thu, 29 Aug 2024 19:26:10 GMT] Request recieved to Appstore
+[Thu, 29 Aug 2024 19:26:10 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Thu, 29 Aug 2024 19:26:10 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Thu, 29 Aug 2024 19:26:10 GMT] Same Copy detected!
+[Thu, 29 Aug 2024 19:27:48 GMT] Recieved login request from guest
+[Thu, 29 Aug 2024 19:27:48 GMT] Credentials for guest correct
+[Thu, 29 Aug 2024 19:27:48 GMT] Requesting bookmarklet content for guest
+[Thu, 29 Aug 2024 19:27:49 GMT] Recieved FTSave request from guest
+[Thu, 29 Aug 2024 19:27:49 GMT] Request recieved to Appstore
+[Thu, 29 Aug 2024 19:27:49 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Thu, 29 Aug 2024 19:27:49 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Thu, 29 Aug 2024 19:27:49 GMT] Same Copy detected!
+[Thu, 29 Aug 2024 19:28:28 GMT] Recieved login request from guest
+[Thu, 29 Aug 2024 19:28:28 GMT] Credentials for guest correct
+[Thu, 29 Aug 2024 19:28:28 GMT] Requesting bookmarklet content for guest
+[Thu, 29 Aug 2024 19:28:29 GMT] Recieved FTSave request from guest
+[Thu, 29 Aug 2024 19:28:29 GMT] Request recieved to Appstore
+[Thu, 29 Aug 2024 19:28:29 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Thu, 29 Aug 2024 19:28:29 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Thu, 29 Aug 2024 19:28:29 GMT] Same Copy detected!
+[Thu, 29 Aug 2024 19:28:47 GMT] Recieved login request from guest
+[Thu, 29 Aug 2024 19:28:48 GMT] Credentials for guest correct
+[Thu, 29 Aug 2024 19:28:48 GMT] Requesting bookmarklet content for guest
+[Thu, 29 Aug 2024 19:28:48 GMT] Recieved FTSave request from guest
+[Thu, 29 Aug 2024 19:28:48 GMT] Request recieved to Appstore
+[Thu, 29 Aug 2024 19:28:48 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Thu, 29 Aug 2024 19:28:48 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Thu, 29 Aug 2024 19:28:48 GMT] Same Copy detected!
+[Thu, 29 Aug 2024 19:31:20 GMT] Recieved save request from guest
+[Thu, 29 Aug 2024 19:32:48 GMT] Recieved save request from guest
+[Thu, 29 Aug 2024 19:32:49 GMT] Recieved save request from guest
+[Thu, 29 Aug 2024 19:32:51 GMT] Recieved login request from guest
+[Thu, 29 Aug 2024 19:32:51 GMT] Credentials for guest correct
+[Thu, 29 Aug 2024 19:32:51 GMT] Requesting bookmarklet content for guest
+[Thu, 29 Aug 2024 19:32:52 GMT] Recieved FTSave request from guest
+[Thu, 29 Aug 2024 19:32:52 GMT] Request recieved to Appstore
+[Thu, 29 Aug 2024 19:32:52 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Thu, 29 Aug 2024 19:32:52 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Thu, 29 Aug 2024 19:32:52 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 21:56:19 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Wed, 04 Sep 2024 21:56:49 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 21:56:49 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 21:56:49 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 21:56:50 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 21:56:50 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 21:56:50 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 21:56:50 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 21:56:50 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:02:57 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:02:57 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:02:57 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:02:58 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:02:58 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:02:58 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:02:58 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:02:58 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:03:05 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:03:05 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:03:05 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:03:06 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:03:06 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:03:06 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:03:06 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:03:06 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:03:20 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:03:20 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:03:20 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:03:20 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:03:20 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:03:20 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:03:20 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:03:20 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:03:25 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:03:26 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:03:26 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:03:26 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:03:26 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:03:26 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:03:26 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:03:26 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:04:11 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:04:11 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:04:11 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:04:12 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:04:12 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:04:12 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:04:12 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:04:12 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:05:27 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:05:27 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:05:27 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:05:28 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:05:28 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:05:28 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:05:28 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:05:28 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:05:44 GMT] Status update recieved
+[Wed, 04 Sep 2024 22:05:58 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:05:58 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:05:58 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:05:58 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:05:58 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:05:58 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:05:58 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:05:58 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:06:07 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:06:07 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:06:07 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:06:08 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:06:08 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:06:08 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:06:08 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:06:08 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:06:18 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:06:18 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:06:18 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:06:19 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:06:19 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:06:19 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:06:19 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:06:19 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:06:29 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:06:29 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:06:29 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:06:29 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:06:29 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:06:29 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:06:29 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:06:29 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:06:34 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:06:34 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:06:34 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:06:35 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:06:35 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:06:35 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:06:35 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:06:35 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:06:47 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:06:47 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:06:47 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:06:48 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:06:48 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:06:48 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:06:48 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:06:48 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:07:17 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:07:17 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:07:17 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:07:18 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:07:18 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:07:18 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:07:18 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:07:18 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:08:39 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:08:39 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:08:39 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:08:39 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:08:39 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:08:39 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:08:39 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:08:39 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:08:58 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:08:58 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:08:58 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:08:59 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:08:59 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:08:59 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:08:59 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:08:59 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:09:52 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:09:52 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:09:52 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:10:03 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:10:03 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:10:03 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:10:21 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:10:21 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:10:21 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:10:22 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:10:22 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:10:22 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:10:22 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:10:22 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:11:59 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:11:59 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:11:59 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:12:00 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:12:00 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:12:00 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:12:00 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:12:00 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:12:06 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:12:06 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:12:06 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:12:07 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:12:07 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:12:07 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:12:07 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:12:07 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:12:08 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:12:08 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:12:08 GMT] Requesting bookmarklet content for guest
+[Wed, 04 Sep 2024 22:12:09 GMT] Recieved FTSave request from guest
+[Wed, 04 Sep 2024 22:12:09 GMT] Request recieved to Appstore
+[Wed, 04 Sep 2024 22:12:09 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Wed, 04 Sep 2024 22:12:09 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Wed, 04 Sep 2024 22:12:09 GMT] Same Copy detected!
+[Wed, 04 Sep 2024 22:12:51 GMT] Status update recieved
+[Wed, 04 Sep 2024 22:13:21 GMT] Status update recieved
+[Wed, 04 Sep 2024 22:13:21 GMT] guest,1725487971.593
+[Wed, 04 Sep 2024 22:13:21 GMT] User already in Statuses; time updated.
+[Wed, 04 Sep 2024 22:13:51 GMT] Status update recieved
+[Wed, 04 Sep 2024 22:13:51 GMT] guest,1725488001.592
+[Wed, 04 Sep 2024 22:13:51 GMT] User already in Statuses; time updated.
+[Wed, 04 Sep 2024 22:14:21 GMT] Status update recieved
+[Wed, 04 Sep 2024 22:14:21 GMT] guest,1725488031.588
+[Wed, 04 Sep 2024 22:14:21 GMT] User already in Statuses; time updated.
+[Wed, 04 Sep 2024 22:14:28 GMT] Status update recieved
+[Wed, 04 Sep 2024 22:14:28 GMT] guest,1725488061.589
+[Wed, 04 Sep 2024 22:14:28 GMT] User already in Statuses; time updated.
+[Wed, 04 Sep 2024 22:16:51 GMT] Recieved login request from guest
+[Wed, 04 Sep 2024 22:16:51 GMT] Credentials for guest correct
+[Wed, 04 Sep 2024 22:16:51 GMT] Requesting bookmarklet content for guest
+[Tue, 17 Sep 2024 20:04:56 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Tue, 17 Sep 2024 20:05:22 GMT] Recieved login request from guest
+[Tue, 17 Sep 2024 20:05:22 GMT] Credentials for guest correct
+[Tue, 17 Sep 2024 20:05:22 GMT] Requesting bookmarklet content for guest
+[Tue, 17 Sep 2024 20:05:56 GMT] Recieved login request from guest
+[Tue, 17 Sep 2024 20:05:56 GMT] Credentials for guest correct
+[Tue, 17 Sep 2024 20:05:56 GMT] Requesting bookmarklet content for guest
+[Tue, 17 Sep 2024 20:05:57 GMT] Recieved FTSave request from guest
+[Tue, 17 Sep 2024 20:05:57 GMT] Request recieved to Appstore
+[Tue, 17 Sep 2024 20:05:57 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Tue, 17 Sep 2024 20:05:57 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Tue, 17 Sep 2024 20:05:57 GMT] Same Copy detected!
+[Tue, 17 Sep 2024 20:09:40 GMT] Recieved login request from guest
+[Tue, 17 Sep 2024 20:09:40 GMT] Credentials for guest correct
+[Tue, 17 Sep 2024 20:09:40 GMT] Requesting bookmarklet content for guest
+[Tue, 17 Sep 2024 20:09:41 GMT] Recieved FTSave request from guest
+[Tue, 17 Sep 2024 20:09:41 GMT] Request recieved to Appstore
+[Tue, 17 Sep 2024 20:09:41 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Tue, 17 Sep 2024 20:09:41 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Tue, 17 Sep 2024 20:09:41 GMT] Same Copy detected!
+[Tue, 17 Sep 2024 20:16:37 GMT] Recieved login request from guest
+[Tue, 17 Sep 2024 20:16:37 GMT] Credentials for guest correct
+[Tue, 17 Sep 2024 20:16:37 GMT] Requesting bookmarklet content for guest
+[Tue, 17 Sep 2024 20:16:38 GMT] Recieved FTSave request from guest
+[Tue, 17 Sep 2024 20:16:38 GMT] Request recieved to Appstore
+[Tue, 17 Sep 2024 20:16:38 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Tue, 17 Sep 2024 20:16:38 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Tue, 17 Sep 2024 20:16:38 GMT] Same Copy detected!
+[Tue, 17 Sep 2024 20:19:03 GMT] Recieved login request from guest
+[Tue, 17 Sep 2024 20:19:03 GMT] Credentials for guest correct
+[Tue, 17 Sep 2024 20:19:03 GMT] Requesting bookmarklet content for guest
+[Tue, 17 Sep 2024 20:19:04 GMT] Recieved FTSave request from guest
+[Tue, 17 Sep 2024 20:19:04 GMT] Request recieved to Appstore
+[Tue, 17 Sep 2024 20:19:04 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Tue, 17 Sep 2024 20:19:04 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Tue, 17 Sep 2024 20:19:04 GMT] Same Copy detected!
+[Tue, 17 Sep 2024 20:19:11 GMT] Recieved login request from guest
+[Tue, 17 Sep 2024 20:19:11 GMT] Credentials for guest correct
+[Tue, 17 Sep 2024 20:19:11 GMT] Requesting bookmarklet content for guest
+[Tue, 17 Sep 2024 20:19:12 GMT] Recieved FTSave request from guest
+[Tue, 17 Sep 2024 20:19:12 GMT] Request recieved to Appstore
+[Tue, 17 Sep 2024 20:19:12 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Tue, 17 Sep 2024 20:19:12 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Tue, 17 Sep 2024 20:19:12 GMT] Same Copy detected!
+[Tue, 17 Sep 2024 20:22:13 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Tue, 17 Sep 2024 20:22:14 GMT] Recieved login request from guest
+[Tue, 17 Sep 2024 20:22:14 GMT] Credentials for guest correct
+[Tue, 17 Sep 2024 20:22:14 GMT] Requesting bookmarklet content for guest
+[Tue, 17 Sep 2024 20:22:15 GMT] Recieved FTSave request from guest
+[Tue, 17 Sep 2024 20:22:15 GMT] Request recieved to Appstore
+[Tue, 17 Sep 2024 20:22:15 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Tue, 17 Sep 2024 20:22:15 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Tue, 17 Sep 2024 20:22:15 GMT] Same Copy detected!
+[Tue, 17 Sep 2024 20:23:04 GMT] Recieved login request from guest
+[Tue, 17 Sep 2024 20:23:04 GMT] Credentials for guest correct
+[Tue, 17 Sep 2024 20:23:04 GMT] Requesting bookmarklet content for guest
+[Tue, 17 Sep 2024 20:23:05 GMT] Recieved FTSave request from guest
+[Tue, 17 Sep 2024 20:23:05 GMT] Request recieved to Appstore
+[Tue, 17 Sep 2024 20:23:05 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Tue, 17 Sep 2024 20:23:05 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Tue, 17 Sep 2024 20:23:05 GMT] Same Copy detected!
+[Sat, 21 Sep 2024 15:26:27 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 15:28:10 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 15:28:23 GMT] Recieved login request from guest
+[Sat, 21 Sep 2024 15:28:23 GMT] Credentials for guest correct
+[Sat, 21 Sep 2024 15:28:23 GMT] Requesting bookmarklet content for guest
+[Sat, 21 Sep 2024 15:28:24 GMT] Recieved FTSave request from guest
+[Sat, 21 Sep 2024 15:28:24 GMT] Request recieved to Appstore
+[Sat, 21 Sep 2024 15:28:24 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Sat, 21 Sep 2024 15:28:24 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Sat, 21 Sep 2024 15:28:24 GMT] Same Copy detected!
+[Sat, 21 Sep 2024 15:30:50 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 15:45:21 GMT] Recieved login request from guest
+[Sat, 21 Sep 2024 15:45:21 GMT] Credentials for guest correct
+[Sat, 21 Sep 2024 15:45:21 GMT] Requesting bookmarklet content for guest
+[Sat, 21 Sep 2024 15:45:22 GMT] Recieved FTSave request from guest
+[Sat, 21 Sep 2024 15:45:22 GMT] Request recieved to Appstore
+[Sat, 21 Sep 2024 15:45:22 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Sat, 21 Sep 2024 15:45:22 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Sat, 21 Sep 2024 15:45:22 GMT] Same Copy detected!
+[Sat, 21 Sep 2024 15:46:22 GMT] Recieved login request from guest
+[Sat, 21 Sep 2024 15:46:22 GMT] Credentials for guest correct
+[Sat, 21 Sep 2024 15:46:22 GMT] Requesting bookmarklet content for guest
+[Sat, 21 Sep 2024 15:46:22 GMT] Recieved FTSave request from guest
+[Sat, 21 Sep 2024 15:46:22 GMT] Request recieved to Appstore
+[Sat, 21 Sep 2024 15:46:22 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Sat, 21 Sep 2024 15:46:22 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Sat, 21 Sep 2024 15:46:22 GMT] Same Copy detected!
+[Sat, 21 Sep 2024 15:47:13 GMT] Recieved FTSave request from guest
+[Sat, 21 Sep 2024 15:47:14 GMT] Recieved FTSave request from guest
+[Sat, 21 Sep 2024 15:47:17 GMT] Recieved FTSave request from guest
+[Sat, 21 Sep 2024 15:59:02 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 16:00:54 GMT] OpenInject0r is up at http://127.0.0.1:8080

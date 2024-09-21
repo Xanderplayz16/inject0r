@@ -1,3 +1,5 @@
 replit.nix
+# kate temporary files
 *.kate-swp
+# node modules
 node_modules

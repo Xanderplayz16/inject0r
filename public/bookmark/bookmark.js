@@ -24,24 +24,13 @@ function loadJSON(location_, name)
 	return JSON.parse(loadTXT(location_, name))
 }
 
-// load libraries
-/*
-let elem_zenfs_core = document.createElement('script')
-window.document.documentElement.appendChild(elem_zenfs_core)
-elem_zenfs_core.type = "module"
-elem_zenfs_core.src = "https://cdn.jsdelivr.net/npm/@zenfs/core@0/dist/browser.min.js"
-elem_zenfs_core.id = 'zenfs-core'
-
-let elem_zenfs_dom = document.createElement('script')
-window.document.documentElement.appendChild(elem_zenfs_dom)
-elem_zenfs_core.type = "module"
-elem_zenfs_dom.src = "https://cdn.jsdelivr.net/npm/@zenfs/dom@0/dist/index.min.js"
-elem_zenfs_dom.id = 'zenfs-dom'
-
-window.console.log(ZenFS)
-*/
-
-
+function loadJS(location_)
+{
+	document.body.innerHTML += `<script src="${location_}"></script>`
+}
+// TODO: get zenfs doing stuff
+loadJS("https://cdn.jsdelivr.net/npm/@zenfs/core@0/dist/browser.min.js")
+loadJS("https://cdn.jsdelivr.net/npm/@zenfs/dom@0/dist/index.min.js")
 Injector.clientconfig = loadJSON('/config/client.json', 'Client config')
 Injector.appconfig = Injector.clientconfig.app_config
 Injector.settings = {} // theme info goes here later
@@ -76,23 +65,26 @@ Injector.user = {
 }
 Injector.info = {
 	version: Injector.clientconfig.version,
-	changelog: loadTXT('/templates/changelog.html', 'Client config')
 }
-function snowfetch(){fetch(`${Injector.serverURL}/js/snow.js`).then(
-function(response){
-response.text().then(function(text){
-eval(text);
-}).catch((error)=>{
-alert("Snow module couldn't load.")
-});
+Injector.templates = {
+	changelog: loadTXT('/templates/changelog.html', 'Changelog'),
+	error: loadTXT('/templates/error.html', 'Error template')
 }
-)}
+function snowfetch(){
+	fetch(`${Injector.serverURL}/js/snow.js`).then((response) => {
+		response.text().then(function(text){
+			eval(text);
+		}).catch((error)=>{
+			alert("Snow module couldn't load.")
+		});
+	})
+}
 
 function updateBG() {
 	var taskBar = document.querySelector('injtaskbar');
 	var bgim = document.getElementById('backgroundImage');
   	files('background.txt', function(resp) {
-    	//bg is the same
+    	// bg is the same
     	if (Injector.user.background != resp) {
       		Injector.user.background = resp.split(';');
 
@@ -232,60 +224,57 @@ if (location.href == Injector.serverURL + "/" ) {
  	`
 	let lib = newElement('script',document.body,'lib');
 	lib.innerHTML = `
-
- 
-
- function files(filename,callback) {
- 		let fetchFileReq = new XMLHttpRequest;
-		fetchFileReq.open('POST', '${Injector.serverURL}' + "/cloud");
-		fetchFileReq.setRequestHeader('token', ${Injector.user.token});
-		fetchFileReq.setRequestHeader('cloudType', 'getFile');
-		fetchFileReq.setRequestHeader('nolog', true);
-		fetchFileReq.send(filename);
-		fetchFileReq.onreadystatechange = e => {
-		  if (fetchFileReq.readyState == 4 && fetchFileReq.responseText.length > 1) {
-		    callback(fetchFileReq.responseText);
-				//alert(fetchFileReq.responseText);
-		  }
+function files(filename,callback) {
+	let fetchFileReq = new XMLHttpRequest;
+	fetchFileReq.open('POST', '${Injector.serverURL}' + "/cloud");
+	fetchFileReq.setRequestHeader('token', ${Injector.user.token});
+	fetchFileReq.setRequestHeader('cloudType', 'getFile');
+	fetchFileReq.setRequestHeader('nolog', true);
+	fetchFileReq.send(filename);
+	fetchFileReq.onreadystatechange = e => {
+		if (fetchFileReq.readyState == 4 && fetchFileReq.responseText.length > 1) {
+		callback(fetchFileReq.responseText);
+			//alert(fetchFileReq.responseText);
 		}
 	}
+}
 
  
- function winprompt(question, callback) {
-			
-			let promptWin = openWindow(300, 225, 'Prompt', false, 'https://wiki.teamfortress.com/w/images/thumb/7/77/Golden_Wrench_IMG.png/250px-Golden_Wrench_IMG.png',function () {},false,true,'promptWin');
-			let inputText = newElement('input', promptWin, "autoObj");
-			inputText.style.position = 'absolute';
-			inputText.style.width = '50%';
-			inputText.style.height = '10%';
-			inputText.style.backgroundColor = '';
-			inputText.style.left = '25%';
-			inputText.style.top = '50%';
-			let Prompt = newElement('genericBapBox', promptWin, "autoObj");
-			Prompt.style.position = 'absolute';
-			Prompt.style.width = '100%';
-			Prompt.style.height = '30%';
-			Prompt.style.backgroundColor = 'lightgray';
-			Prompt.innerText= question;
-			Prompt.style.top = '10px';
+function winprompt(question, callback) {
+	let promptWin = openWindow(300, 225, 'Prompt', false, 'https://wiki.teamfortress.com/w/images/thumb/7/77/Golden_Wrench_IMG.png/250px-Golden_Wrench_IMG.png',function () {},false,true,'promptWin');
+	let inputText = newElement('input', promptWin, "autoObj");
+	inputText.style.position = 'absolute';
+	inputText.style.width = '50%';
+	inputText.style.height = '10%';
+	inputText.style.backgroundColor = '';
+	inputText.style.left = '25%';
+	inputText.style.top = '50%';
+	let Prompt = newElement('genericBapBox', promptWin, "autoObj");
+	Prompt.style.position = 'absolute';
+	Prompt.style.width = '100%';
+	Prompt.style.height = '30%';
+	Prompt.style.backgroundColor = 'lightgray';
+	Prompt.innerText= question;
+	Prompt.style.top = '10px';
 
-			inputText.addEventListener("keydown", function(e){
-				if(e.key === "Enter"){
-					// windowContent = document.promptWin.querySelector('#WindowCont');
-					// newWindow = document.promptWin.querySelector('#genericWindow');
-					// windowContent.id = "removed";
-					// newWindow.remove();
-					// removeTaskbarItem(taskItem);
-					let val =  inputText.value;
-					promptWin.remove();
-					document.getElementById('promptWin').remove();
-					console.log("Removed prompt window");
-					callback(val);
-					return val;
-				}
-			})
-			
-		}`
+	inputText.addEventListener("keydown", (e) => {
+		if(e.key === "Enter"){
+			// windowContent = document.promptWin.querySelector('#WindowCont');
+			// newWindow = document.promptWin.querySelector('#genericWindow');
+			// windowContent.id = "removed";
+			// newWindow.remove();
+			// removeTaskbarItem(taskItem);
+			let val =  inputText.value;
+			promptWin.remove();
+			document.getElementById('promptWin').remove();
+			console.log("Removed prompt window");
+			callback(val);
+			return val;
+		}
+	})
+	
+}
+`
 	
 	var console = {};
 	// pre init variables for use later on because i didnt know the difference between let and var
@@ -489,8 +478,8 @@ refreshStyleSheet();
 		let console = newElement("customConsole", background, "console");
 		let consoleInput = newElement("input", background, "consoleinput");
 		consoleInput.placeholder = "Type command here, or do 'help' to see all commands.";
-		let validCmds = ["help", "run", "override"];
-		let cmdExecs = ["runHelp();", "evalCmdLine();", "engageOverRide();"];
+		let validCmds = ["help", "run"];
+		let cmdExecs = ["runHelp();", "evalCmdLine();"];
 		function runHelp() {
 			console.log(`Help Menu: <br>
    --{help}-- Returns this menu. <br>
@@ -504,9 +493,7 @@ refreshStyleSheet();
 				console.log(err);
 			}
 		}
-		function engageOverRide() {
-			alert("in dev");
-		}
+		
 		consoleInput.addEventListener("keydown", function(e) {
 			if (e.key == "Enter") {
 				let validCmd = false;
@@ -550,6 +537,7 @@ refreshStyleSheet();
 		let backgroundImage = newElement("beedabeedabo", background, "backgroundImage");
 
 		//make adds for like profit or something
+		// not a chance
 		//let advertisment = newElement("ad", background, "advertise");
 
 		// manage the taskbar
@@ -560,7 +548,7 @@ refreshStyleSheet();
 		let trueLeft = null;
 
 		// closed style left makes sure the taskbar button being moved is farther right than the object removed
-		let indexLeft = null;
+		let indexLeft = 0; // 0 instead of null to make the browser console quiet down
 		//let tbarColor = "#002169";
 		let tbarColor = "#00000000"; // fallback color
 		//primative logo button, will be customizeable, WIP
@@ -788,7 +776,7 @@ refreshStyleSheet();
 			let newWindow = newElement("windowHeading", windowParent, winId);
 			windowsOpen.push(newWindow);
 			console.log("Opened window with title " + windowTitle, Injector.clientconfig.brand);
-    
+
 			newWindow.style.opacity = "0";
 			makeElementDraggable(newWindow)
 			newWindow.style.width = width - 5 + "px";
@@ -827,7 +815,7 @@ refreshStyleSheet();
 
 			//noDragGlitch(closeBtn);
 
-      //automatically close window to fix console spam bug
+		//automatically close window to fix console spam bug
 			let minBtn = newElement('CircBtn',newWindow,'minBtn');
 			minBtn.innerHTML = '_';
 			minBtn.style.marginRight = '93px';
@@ -868,32 +856,32 @@ refreshStyleSheet();
 			});
 			
 			
-//fullscreen
+		//fullscreen
 
 			let isfull = false;
-// 			fullBtn.addEventListener("click", function() {
-// 				function toggleFullScreen() {
-// 					alert('work in progress');
-// 					newWindow.classList.toggle('fullScreen');
+		// 			fullBtn.addEventListener("click", function() {
+		// 				function toggleFullScreen() {
+		// 					alert('work in progress');
+		// 					newWindow.classList.toggle('fullScreen');
 					
-//   /*if (!document.fullscreenElement) {
-		
-//     document.documentElement.requestFullscreen();
-//   } else if (document.exitFullscreen) {
-//     document.exitFullscreen();
-//   }*/
-// }
-//     toggleFullScreen();
-  
-// 			// 	if (isfull) {
-// 			// 		isfull = false;
-// 			// 		newWindow.style.width = '100%';
-//    // //     	newWindow.style.height = '100%';
-// 			// 	} else {
-// 			// 		newWindow.style.width = width - 5 + "px";
-// 			// 		isfull = true;
-// 			// 	}
-// 			});
+		//   /*if (!document.fullscreenElement) {
+
+		//     document.documentElement.requestFullscreen();
+		//   } else if (document.exitFullscreen) {
+		//     document.exitFullscreen();
+		//   }*/
+		// }
+		//     toggleFullScreen();
+
+		// 			// 	if (isfull) {
+		// 			// 		isfull = false;
+		// 			// 		newWindow.style.width = '100%';
+		//    // //     	newWindow.style.height = '100%';
+		// 			// 	} else {
+		// 			// 		newWindow.style.width = width - 5 + "px";
+		// 			// 		isfull = true;
+		// 			// 	}
+		// 			});
 
 			
 			let timer = setInterval(function() {
@@ -908,10 +896,10 @@ refreshStyleSheet();
 			windowContent.style.height = height + "px";
 
 			//rounded corners
-			 newWindow.style.borderTopRightRadius = '5px';
-			 newWindow.style.borderTopLeftRadius = '5px';
-			 windowContent.style.borderBottomRightRadius = '5px';
-			 windowContent.style.borderBottomLeftRadius = '5px';
+				newWindow.style.borderTopRightRadius = '5px';
+				newWindow.style.borderTopLeftRadius = '5px';
+				windowContent.style.borderBottomRightRadius = '5px';
+				windowContent.style.borderBottomLeftRadius = '5px';
 
 
 			// make so window cannot be dragged while hovering over content. this prevents annoying glitches
@@ -921,7 +909,7 @@ refreshStyleSheet();
 			//resizability
 			if ((resizable == "on") || (resizable == true)) {
 				windowContent.style.resize = "both";
-        		windowContent.style.overflow = "hidden";
+				windowContent.style.overflow = "hidden";
 				console.log(windowContent.style.resize);
 				setTimeout(function() {
 					windowContent.style.transitionDuration = "0s";
@@ -955,17 +943,16 @@ refreshStyleSheet();
 				}
 			}
 		};
-
 		// better error function
 		function error(errorContent) {
 			let error = openWindow(400, 200, "Error", resizable = "off");
 			error.innerHTML = `
-  <h1> An error has occured!</h1>
-  <p>report this in a github issue: </p>
-  <p>` + errorContent.toString() + "</p>";
+  <h1>An error has occured!</h1>
+  <p>Please report this in a github issue: </p>
+  <p>` + errorContent.toString() + `</p>`;
 			console.log("Made visible error with content '" + errorContent + "'", Injector.clientconfig.brand);
 		}
-    		
+    	
 		// function declarations for apps
 
 		/*function checkwindowsopen() {
@@ -1028,280 +1015,10 @@ refreshStyleSheet();
 		//changelog
 		function changelog_app() {
 			let chlog = openWindow(500, 300, "Changelog", resizable = "on", Injector.user.icons.Logo);
-			chlog.innerHTML = `<h1>Changelog - ${Injector.clientconfig.brand} v${Injector.info.version}</h1>\n${Injector.info.changelog}`; 
+			chlog.innerHTML = `<h1>Changelog - ${Injector.clientconfig.brand} v${Injector.info.version}</h1>\n${Injector.templates.changelog}`; 
 			chlog.style.overflow = 'auto';
 		}
 		
-		// exploit hub
-		function exploithub_app() {
-			let exhub = openWindow(450, 350, "Exploit Hub", resizable = "on", Injector.user.icons.ExpHub)
-			exhub.style.backgroundColor = "#454545";
-			let numBtn = 0;
-			exhub.innerHTML = `
-  <gamingheader id="topdog"></gamingheader>
-  <seperator id="seperator"></seperator>
-	<div id="buttonlist" class="expButtonList">
-	  <bruh class="expButton" id="stoopybtn">History Flooder</bruh>
-	  <bruh class="expButton" id="editbtn">Edit Page</bruh>
-	  <bruh class="expButton" id="tabname">Change Tabname</bruh>
-	  <bruh class="expButton" id="gdrivecloak">Drive Cloak</bruh>
-	 	<bruh class="expButton" id="gclasscloak">Classroom Cloak</bruh>
-		<bruh class="expButton" id="antiexten" 0>Anti-Extension</bruh>
-		<bruh class="expButton" id="testings" 0>size test</bruh> 
-		
-  </div>
-	<style id="expstyle"> </style>
-  <text1 id="headerTxt"></text1>
-  <text2 id="descTxt"></text2>`
-			//main
-			let floodBtn = document.getElementById("stoopybtn");
-			let header = document.getElementById("topdog");
-			let expstyle = document.getElementById("expstyle");
-			//exploits
-			//buttonlist is the container for buttons
-			let buttonlist = document.querySelector("#buttonlist");
-			let editBtn = document.getElementById("editbtn");
-			let seperator = document.getElementById("seperator");
-			let headerText = document.getElementById("headerTxt");
-			let descText = document.getElementById("descTxt");
-			let tabBtn = document.getElementById("tabname");
-			let noExtension = document.getElementById("antiexten");
-			let driveCloak = document.querySelector("#gdrivecloak");
-			let sizetest = document.querySelector("#testings");
-			let gclassCloak = document.querySelector("#gclasscloak");
-			// lets me create more buttons later on without cancer cause im lazy
-			buttonCSS(floodBtn, headerText, descText, "Floods your history with the page you are currently visiting. Keep in mind they can still scroll down far enough, so reliance on this is discouraged.");
-			buttonCSS(editBtn, headerText, descText, "Allows you to edit the page you're currently visiting. You cannot edit the contents of Injector. After editing the page, disabling this will lock in your changes to the page. Keep in mind this is only for you, and refreshing will revert these changes.");
-			buttonCSS(tabBtn, headerText, descText, "Changes the current name of the tab you're on. Can be used to trick teachers (make game sites look like Google Classroom, ect). If you dont set anything than it defaults to Google Drive, your welcome ;)");
-			buttonCSS(driveCloak, headerText, descText, "Cloaks the tab as Google Drive. Similar use of the Change Tab Name exploit, but more convincing as it changes the icon.");
-			buttonCSS(noExtension, headerText, descText, "Go to the Chrome Web Store, and activate this bookmark. It will disable the extension you enter in, its like manually turning it off in settings.");
-			buttonCSS(sizetest, headerText, descText, "this is a size test that does nothing \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum fermentum elit, eu fermentum neque posuere ac. Praesent pretium odio sed odio laoreet imperdiet. Nunc interdum bibendum lobortis. Vivamus quam diam, tincidunt id dignissim vel, imperdiet sed elit. Etiam facilisis purus non turpis commodo pellentesque. Mauris posuere egestas varius. Donec nisi nunc, luctus eget semper ac, ultricies sit amet arcu.");
-			buttonCSS(gclassCloak, headerText, descText, "Cloaks the tab as Google Classroom. Similar use of the Change Tab Name exploit, but more convincing as it changes the icon.");
-
-			//trying to make buttons scroll...
-			//buttonlist.style.overflow = "scroll";
-			//buttonlist.height = '330px';
-
-      		// COLORS
-      		var green = "#25cc00";
-     		var blue = "#1c59ff";
-      
-			//style
-			expstyle.innerHTML = `
-	 			.expButton {
-		 			width = 42%;
-					padding = 2px;
-		 			position = absolute;
-				}
-				#buttonlist {
-					position: absolute;
-					bottom: 0px;
-					left: 0px;
-					width: 50%;
-					height: calc(100% - 50px);
-					border-color: gray;
-					border-style: none solid none none;
-					overflow: hidden auto;
-				}
-
-			
-			`
-			//position: absolute; bottom: 0px; left: 0px; width: 150px; height: calc(100% - 50px); border-color: gray; border-style: none solid none none; overflow: hidden auto; --darkreader-inline-border-top:#545b5e; --darkreader-inline-border-right:#545b5e; --darkreader-inline-border-bottom:#545b5e; --darkreader-inline-border-left:#545b5e;
-			
-			floodBtn.style.top = "10px";
-			editBtn.style.top = "60px";
-			tabBtn.style.top = "110px";
-			driveCloak.style.top = "160px";
-			gclassCloak.style.top = "210px";
-			noExtension.style.top = "260px";
-			sizetest.style.top = "310px";
-
-			//floodBtn.style.grid-column = 1;
-			//editBtn.style.grid-column = 2;
-			//tabBtn.style.grid-column = 3;
-			//driveCloak.style.grid-column = 4;
-			//noExtension.style.grid-column = 5;
-			//sizetest.style.grid-column = 6;
-			
-			// make the header bar
-			header.style.position = "absolute";
-			header.style.width = "100%";
-			header.style.height = "50px";
-			header.style.backgroundColor = "#2a4dad";
-			header.style.color = "white";
-			header.textContent = "Exploit Hub v1.1";
-			header.style.top = "0px";
-			header.style.marginTop = "0px";
-			header.style.userSelect = "none";
-			header.style.fontSize = "35px";
-			header.style.textAlign = "center";
-			header.style.lineHeight = "50px";
-
-			//make text-description seperator
-			//
-			seperator.style.position = "absolute";
-			seperator.style.width = "2px";
-			//test
-			seperator.style.height = "calc(100% - 50px)"
-//			seperator.style.height = "100%"
-			seperator.style.top = "50px";
-			seperator.style.bottom = '0px';
-			seperator.style.backgroundColor = "white";
-			seperator.style.left = "46.25%";
-
-			// text boxes
-			headerText.style.position = "absolute";
-			headerText.style.right = "0px";
-			headerText.style.top = "50px";
-			headerText.style.width = "45%"
-			headerText.style.height = "50px";
-			headerText.style.color = "white";
-			headerText.style.fontFamily = "Helvetica";
-			headerText.style.fontSize = "25px";
-			headerText.style.textAlign = "center";
-			headerText.style.lineHeight = "50px";
-			headerText.textContent = "Welcome!"
-			descText.style.position = "absolute";
-			descText.style.right = "2px";
-			descText.style.top = "100px";
-			descText.style.width = "45%"
-			descText.style.height = "calc(100% - 50px)";
-			descText.style.color = "white";
-			descText.style.fontFamily = "Helvetica";
-			descText.style.fontSize = "15px";
-			descText.style.lineHeight = "19px";
-			descText.textContent = "Hover over a button to see what it does!"
-			let driveCloakEnabled = false;
-			let ico = null;
-			let link = null;
-			driveCloak.addEventListener("click", function() {
-				if (!driveCloakEnabled) {
-					driveCloakEnabled = true;
-					link = document.querySelector("link[rel~='icon']");
-					if (!link) {
-						link = document.createElement('link');
-						link.rel = 'icon';
-						document.getElementsByTagName('head')[0].appendChild(link);
-						ico = ""
-					}
-					link.href = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/1147px-Google_Drive_icon_%282020%29.svg.png';
-					document.title = "My Drive - Google Drive"
-					driveCloak.classList.add('enabled');
-				} else {
-					driveCloakEnabled = false;
-					driveCloak.classList.remove('enabled');
-					link.href = ico;
-				}
-			})
-			
-			gclassCloak.addEventListener("click", function() {
-				// function gcloak() {
-					var link = document.querySelector("link[rel*='icon']") || document.createElement('link');link.type = 'image/x-icon';link.rel = 'shortcut icon';link.href = 'https://ssl.gstatic.com/classroom/favicon.png';document.title = 'Classes';console.log(document.title);document.getElementsByTagName('head')[0].appendChild(link) 
-				// };gcloak();setInterval(gcloak, 1000);
-			})
-			let floodEnabled = false;
-			let editEnabled = false;
-			let count = 0;
-			floodBtn.addEventListener("click", function() {
-				if (!floodEnabled) {
-					floodEnabled = true;
-					var t = "/";
-					o = "f_";
-					var permCount = 0;
-
-
-					var flooder = setInterval(function() {
-						floodBtn.style.backgroundColor = green;
-						if (floodEnabled) {
-							if (permCount > 45) {
-								history.pushState(0, 0, "/")
-								t = "/";
-								o = "f_";
-								permCount = 0;
-							}
-							history.pushState(0, 0, t += o.toString() + count.toString());
-
-							count++;
-							permCount++;
-						} else {
-							clearInterval(flooder);
-							floodBtn.style.backgroundColor = blue;
-						}
-					}, 35);
-
-				} else {
-					floodEnabled = false;
-					history.pushState(0, 0, "/")
-					floodBtn.style.backgroundColor = "#1c59ff";
-				};
-			})
-			editBtn.addEventListener("click", function() {
-				if (!editEnabled) {
-					//green?
-					editBtn.style.backgroundColor = "#25cc00"
-
-					document.body.contentEditable = true;
-					background.contentEditable = false;
-					backgroundImage.contentEditable = false;
-					editEnabled = true;
-					editUsed = true;
-				} else {
-					document.body.contentEditable = false;
-					editBtn.style.backgroundColor = "#0031b5";
-					editEnabled = false;
-					editUsed = false;
-				}
-
-			})
-			//only works in the bookmarklet :( 
-			//fun fact, it works on any page on the chrome.google.com domain, so webstorex works, but so does webstoree or webstoreyay
-// 			 noExtension.addEventListener("click", function(){
-// 	if (window.location.href.indexOf("https://chrome.google.com/webstore") > -1){
-// 						if (confirm("you must be on the chrome extension store page, click ok to redirect to page, or cancel to cancel")) {
-// 						alert("Relaunch inject0r once page has loaded and click the Anti-Extension button again :)")
-// 							window.location.replace("https://chrome.google.com/webstore-injredirect")
-// 						} else {
-// 							alert("Canceled :(")
-// 						}
-// 				 } else {
-// 				 prompt('Extension IDs here: (seperated by commas for m nultiple)').split(',').forEach(i => {
-//     chrome.management.setEnabled(i, !1)
-// })}
-// 			 });
-
-     		noExtension.addEventListener("click", function() {
-				var win = window.location.href;
-				var check = win.startsWith("https://chrome.google.com/webstore");
-				alert(win);
-				if (check) {
-					prompt('Extension IDs here: (seperated by commas for multiple)').split(',').forEach(i => {
-						chrome.management.setEnabled(i, !1)
-					})
-				}
-				else if (!(check)) {
-					alert(`Wrong Page redirecting, once redirected relaunch ${Injector.clientconfig.brand} and re-click Anti Extension.`)
-					window.location.replace("https://chrome.google.com/webstoreinject");
-				}
-      		});
-
-			tabBtn.addEventListener("click", function() {
-				/*var user_input = prompt("Type new tab name");
-				if (document.title = 'null') {
-					link = document.querySelector("link[rel~='icon']");
-					if (!link) {
-						link = document.createElement('link');
-						link.rel = 'icon';
-						document.getElementsByTagName('head')[0].appendChild(link);
-						ico = ""
-					}
-					link.href = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/1147px-Google_Drive_icon_%282020%29.svg.png';
-					document.title = user_input;
-				}*/
-
-				var link = document.querySelector("link[rel*='icon']") || document.createElement('link');link.type = 'image/x-icon';link.rel = 'shortcut icon';link.href = prompt('URL for icon?','https://ssl.gstatic.com/classroom/favicon.png');document.title = prompt('Title?','Classes');console.log(document.title);document.getElementsByTagName('head')[0].appendChild(link)
-				
-			});
-		};
 
 		// chat things, don't mess with this
 		let pseudoInput = null;
@@ -1320,96 +1037,7 @@ refreshStyleSheet();
 			browserwindow.style.borderWidth = "0px";
 			browserwindow.style.margin = "0px";
 		}
-		/*
-		function app4(){
-			let proxybrowser = openWindow(450, 350, "ProxBrowser", true, Injector.serverURL + "/proxbrowser.png)
-			alert("Currently being fixed as it doesnt work on some browsers yet.")
-			var proxyTypes = ["Womginx", "Alloy"];
-			var proxyUrls = ["https://womginx.alexandermayer1.repl.co/main/", "https://krono-alloy-proxy.herokuapp.com/session/?url="];
-			let urlbar = newElement("input", proxybrowser, "urlbar");
-			let proxyPicker = newElement("select", proxybrowser, "proxypicker");
-			let fullScreenBtn = newElement("FSButton", proxybrowser, "fsbtn");
-			let browserwindow = newElement("iframe", proxybrowser, "proxyBrowser")
-			browserwindow.onload = function(){
-				console.log("browser loaded! SRC: " + browserwindow.src)
-				if(browserwindow.src.includes("https://krono-alloy-proxy.herokuapp.com/session/?url=eW91dHViZS5jb20=")){
-					if(browserwindow.src[63] == "/"){
-						browserwindow.src = "https://krono-alloy-proxy.herokuapp.com/session/?url=eW91dHViZS5jb20=/" + btoa(browserwindow.src.slice(64, browserwindow.src.length));
-					} else{
-						console.log(browserwindow.src[63]);
-					}
-				}
-			}
-			proxyPicker.style.position = "absolute";
-			proxyPicker.style.right = "40px";
-			proxyPicker.style.width = "80px";
-			proxyPicker.style.height = "29px";
-			proxyPicker.style.backgroundColor = "#040042";
-			proxyPicker.style.color = "white";
-			fullScreenBtn.style.position = "absolute";
-			fullScreenBtn.style.right = "0px";
-			fullScreenBtn.style.width = "40px";
-			fullScreenBtn.style.height = "27px";
-			fullScreenBtn.style.backgroundColor = "#040042";
-			fullScreenBtn.style.color = "white";
-			fullScreenBtn.textContent = "FS";
-			fullScreenBtn.style.userSelect = "none";
-			fullScreenBtn.style.textAlign = "center";
-			fullScreenBtn.style.lineHeight = "27px";
-			fullScreenBtn.style.borderStyle = "none none solid none";
-			fullScreenBtn.style.borderWidth = "2px";
-			fullScreenBtn.style.borderColor = "white";
-			fullScreenBtn.style.transitionDuration = "0.5s";
-			//.̞͕͔͈̬͓̟̙̙͈̲̖̬̳̯̳̩̖̥̘͚͓̞͇̠͖͍̟̗̤̣͈̜̖̝̯̮̗̭͇̯͚͓͓̱̙̥̟̩̱̲͔̰͈͕̗̜̯̩͍̰̘̫̥̯̣̭̟̟̰̰͚͙̮̫̲̯̜̮͈̘͎̣̳̭̣͖̱̳͖̝̤̩̯͉̙͖͙̫̄̿̐̎̔̍̔̌̏͑̔̇́̾͐̓̆̓̍̑̉͐̌̂̾͊̽̄̇̈́͐̓͂̾̋̀̂̀̃̅̏̂͑̉͋̂͒̀̐̍̆̊͛̋͌̆́͊̀͑̎̀͗̉̓̄͆̄̂͗̐͐̀̔̋́̾́͐͑́̎͛͛̃̀͂́͑̐̌̒̃̓̂̔͂̐̽͛̏̚̚̚ͅͅͅ.̫̭̙̗̫̥̟̦͕̬̖̠̝̯͍̣̜̩̫͙̙̰̰̞̠̳̙̘̗͉͉͖͔̥̜͇̪͙͚̭̝̲͔̥͓̦̘̤͔̝̯͉͇͙͈͓̥̥̩̩̠̞̰̘̟̥̩͔̙͈̦̪̥͇͍̘͚̞̠̰͈̭͈͎̦̫͚͉͓͕̦͔͍̘͕̭͕̯̬͚̟̬̖͙̪̮͚͚͔̯̣͔̱̠̤͚̖̯̞͔͍̱͈͇̬͈̗̭̖̖̟̒̌̓̋̐̂̈́̅̔́͒͆̄̅̆̓͐̅̄̓̏̋͊͊̋͆̅̓̍̈̾̅̿͒͋͗̅͋̃̓̍̓͒̋̄́͛͗͛͛̉̓̆͐̏̈̓̔̇̃̑̔̂͋͋̀̈͋̌͛͊̉͊́̊̏͒͗̆̑͆̀͛̊̅̎̓́̇͌́̎̀̌́͆̔̒̆́́͋̀̆͑͐̓͌̓̃̑̍́͐͐̚̚̚̚̚ͅͅͅ.̰̥̙̝̯̪̥̩̘̙͈̭̥̳̲̤͎̝͇͔̣̫̥̰̯̭̫͎͔̯͍͖͎̥̣̘̝̲͓͔̖̳͇̗̲̙͕̞͎͍͎̮̳̘̰͕̥̯̫̤͉̰̙͎͉̦̫̞̟̯̳͚̤͔̘̙͕͓̖̭͎͍͖͎͍̜̮̦̜̩̬͙̝̜̲̗̮̽̾͛͂̏͒̾̆̃͐̀͗̽̈́̀͒̈͐͐̌̓̔̊̎́̂̔̔̀̽͂̉̾͒̒̀̔̀͂̉͋̔͒͋̿̽̊͋̊̂̒̆̿͂̾̎͛͊̐̍͋͌͌͐̓̋̎́͋̊̍̔͗͑̐́̓͋̿̃̋̉̈̉̑͐̌̈́̎͋̍̃̆̔̈͆͋̑́̎̑́͑̊̉̎́̏̉̊̑̎̿͒̑̋̚̚̚̚̚̚ͅͅͅ.̪̱̣̦͖͓̱̝̗̟̬͖͔̟̭͇̙͎̗̙̝̝̞̰͓̣̤̭̱̫͈̭͍͈̟͕̬͉͇̝̲̲̤̥̰̰̯̬̝͕͇̩̥̩̟̫͙̣̜͚̞͚̝͚̖̖̱̝̬̦͔̭͈͈̬̜̪͕̰̟͎̣͔̯̜̖͕̯̬̠͓͚͍͕̤̤͇͙̮͈̠̗̤̜̟̙͚̟̗̪̗͓̞̦̳̞̯̭̩͖͉̲̐̀͛̉̎̇̒̅̀͆͒̄͛̐̉̑̄̿̓̔̅̿̈́̀͆͛͊̉̐̈̀̂̐́͛͌̈́̾̈́͋̾̉̉̂͋̂̆̃̄́̆͆͒̎̑̆͐̾̒̄̈͗̽͋̇̉̀́̀̈̎͋͊̍́̄̆̃̈́̀̀̅͋̉̔͆̀̀̈́͌̉̓͂̓̀́̉̓̌̈́̏̏͒̓̀̉̏͛̃͂̑̇̇͆̑͌͐̉͋̎̄͊̍̐̊̓͛̃̿͋̀̉̑͆̐̒̃̉͌̚̚ͅͅͅͅͅͅͅ.̤̭͎̞̯̝̣͕̭̣͔̪̬͙͍̪̞̠̩̬͍̤͈̤̙̙̦̖̳̬͚̬͍͖̣͇̣͖̤̘͚͈͓̲̘͔͖͓̲̫̦͈̗̟̥̭̗̱̜͕͓̥͙̖̮͙̪͙̳̝̰̟͓̗̜͓̰͕͓͍̫̯͎̩͈̟̲͎̖̗̲͖̖͓̗̗̣̖̩̙̱̥̙͎̩̩͌͆͑͂̄̿̈̏̔̀͒̉́́͑̐͊͐̍́̅̓̍̽̀̽̉͒́̓̈́̇̀̈̋̔̀͑̈͋̂͆͊̀̒̽͊̐̔͂̀̓̋̂̈́̈̔̍̔͗̄̔͌̍̑̀̌̽̃͒̋̉́̇͑̅̎̋́̔̎͆̽̀̔̂̓̔̊̃͗̑̃̉͐̉̚̚ͅͅͅͅͅ.̜̠̮̖͎̳̩̥͚͕̣̥͈̠̳̟̙̙̣͕̫̭̩̞̝̜̱͍̙̜͉̳̪͉̭̞͓̖̜͙̦̤͙̫̙̘͙̜͎̩̯̙̭̩͉̥̘̖̰͎͉̣̩̫͇̭̫̰̭̗͉̳̳̬͖̪̫͕̜͙̱̳̯͖͍̭͕͇̪̩̥͚͔̦̣̱̜̜̭͖͈͈͈̠̰̲̲̤̟̗͍̘͈͈̣̳̟̙͑̏̎͊͊͆̑͋͌̇͒̐̈̆̄̅͊̌͑̔̅̓̊͊̄̓̄̓̓͊͊̒̾̾̾́̎̓̅̀̈͋͗̃͋̒̊͛̇̔̐̓̌̍̄̀͒̓̽̉̒̏̃́̃̓̑͛̎́̆͑̊̇͋͊̂̔̃̐̎͂̇̽͗́͌̓͆̿͐̒̐̐̽͋͊̎̃̏͐̎̒̑̑̀͂͑̂̓͒̃͋͒͌̀̄̍͊́̀̆̈̀̅̎͂͒̍̊̂̈́̚̚̚ͅ.̫͈̞͈͉̰̜̘̩͇̦̘̰̝̘̥͔̭̱͔͕̘͎͍̭͉͍͖͙̝̝̩̗̲͉̜̮͙̮̝͖̳͎͓͍̱͙͈̯̫͓̜̠͓͙̭̫̟͓̦͕͓͎̭̦͍͓̣͚͍̝̰̘͉͓̙̳͖̰̞̳̯͈̯̜̬̪̩͎̦̯̪̪̥̱̖͓͔̞͈̩̗̩̫͚͇̟̱͔͈̗̞̉̈́͑̄̔̏́̐́̌̄͐͂̉̈̌͂̔͂̔̓̈́̽̓͛̈̃̾̅̿͒̀͌͋̅̎͋̆͑̽̔͌̾̌̍̓̉͒́̅̐͂̀͛̀̀̓̆͑̋̀̈̏̄͐̀͂̑͆̔̌͑͊̑̀̋͆̃͋͊̽̓́͗̆̿̋̿̊̾͌͑̔̃́͆͆̅̓̚̚̚̚̚ͅͅͅ.͍̮̣̰͙̦̤̗̗̠̯͔͈̳͔̬̗͖̭͕͈̫̖͕̠̜̰̗̯̤͈̬̯̭͎͎̘͍̫̞͖̜̲̟̖͓̗͓̥͚̰͕̣̭̱̖̟̘̱̣͎̮͙̖̬̤̟̙̬̝͈̖̭͔͓̝̪͕̖̩̝͙̠̣̞̗̮͕̤͇͉̙̪͎͔̘̗͚̯͖̦̩͖̲̜̲͈̯̠̬̖̪̟̟̘̱̗̦̥͖͉͙͍͚̝͓̽͛̊̀̑͛̐̊̓͒̇͋̏̀͑́͌̿͛̅̀̂̏̑̇͗́̋͐͗͋͊̑̅́͛̔͌̈́̀̾̔̿̌̆̄͑̒̃̾̓͛̋̉̈͗̋̂͗̄̍̈̅̈́̒͆͗̊̂̉̈̇̐̂̍̃͗͊͑̍͊̈̃͌̆̈́́͋̉͗̈̀͂̒̽͗͛̓͌̀̉͋̽̈́̋͑̊̀̀̆̒̃͗̾̑́͌̇̽̄͑̽́͑̉͑̀̌͑̓̽̆̒̚̚̚̚̚ͅͅ.̣̯̥̮͙͇͎̲̰̥͚̤̰̙̞̘̪͍͖͚̮͕͕͖̰͔̬͎̜̜̗̱̥̭̱̲̰̥̫͓͎̩̝̬̜̤̘̥͕̯̬͉̱͔̰̭̝͕̗͙̰̲̱̬̦̙̠̯̦̟̭͖͚͎̯̬̱͎̩̳̰̯̘̩̟̬̪̩͕̮͍͖͚̩̯̙͌̽́͐́̏͛̆̃́̄͐̍͆̐͌̽̄̍̑̂̀̋̅͋̀͊̉̾̈́́͛̈́͋̍̇̒̂͋͛̓̀͊̋̄̑͋̀̂̃͒̃͑̔̎͒̄͊̑̉͑͒͗̏̂̏̿͋̌̒̌́͌͒̆͂̀́͋̏̔̽̊̔̍͌̈́́̋͒̃̾̅̔̀̍̊̍͑̏̾͒̐͛̊̚̚̚̚̚̚ͅͅͅͅͅͅͅ.̗͔̮̜̝̦͍͎̳̗͖̝̪̥̤͔̱̥̯͔͉̞̮͚̣̯̙̗͍̖̥̖͓͔͇̳͖̪̤̬͎͙̖̝̟̬̰͈̯̰̗̝̠̖̠̙͚̰̜̦͕̞̣̙̪̭͈͉͈͕̤͇̝̱̜̜͕͕̙͚̖͕̞̰̣̝͈̩͎͓̜̪̱͚̜̭̘͇̜͕͔̠̱̠̩̝̯̗̟̲̗̞̖̯̙̅̏́͐̑̂̊̋̆̅͒̍̂̈́̓̅̾̋̌͑̈͌̆͊̔̽̓̏̈́͋͒̒̉̈́̾͑̐̊̋͒͐̅͑͋̓̃̀̋̃̎̽̄̓̏͑̉͛̑̓̂̉̋̈́͌̅͊̃̑̉̓́͂̌̏̋̀͋͑̓̎̒͐́͛̌͐̉͗̉̽͊͑̈͌͋̑͐̔̓̌͋̏̉̄͛̒͊̂̀͂͋͂͊̀̄͐͌̌̃͆̓̉͊̀̔̒̉̄͆̃͛͐̚̚̚ͅͅͅͅͅͅ.͇̪͍̮̳̥̖̟͚̤͙̦̰͔͇̮̥̰͎͚̘͙͙̦̖͉͕̜̤̳̮̰͎̝͈͎͈̰̟͚̗̲̱͖̤̖̜̦̝̰͇̥̪͖͕̫̣͔̙͓̫̳͕̙̟̱͎̠̤͙̜͕̥̗̪͔͉̯̞͙̳̖̰̮̘̫͙̰̗̪͎͍̳̟̯̮̳̙͓͇̘̩͍̝̣͎͇̤͕͎̖̲͓̳͓̩͇̟͖͇͈͇̓̓̄̂̏̍̀͌̾̏̓̓͐̒͑͗͐̋̋̑̽́̑̓͌̌̀̒̃̏̎̿̀̑̒̂͊͋̅́͊̑̔͋͊̊͒̆́̔̿̆̇͆̀̈̀͊̒̂̓̀̑̑̎͐͂͑̃̒̇̃̋̎̃̈́̄̾͋̓̃̈́̓̿̆͂͆̉̾̋̇̓͛̄́̅̚̚̚̚̚ͅ.̤̭̣̲̠̜̘̪̬̥͙̬̳̘̣͕̙͉͚̤̦̝̗͈̮̭̣͍̳̤͉̳͙͚̞̗̯̯̘͈̯̱̥̤͇̖͎̮̟̲̤͚̰̞̭̥̜̜̞̭͔͍̪̰̙͖͈̜͈͓̰̗̥̝̖̲̯͖̮͙̳̭̗̞̭͕͍͙̤͉̬̮̱̥̱͈͕̱̘̥͎̜͚̟͍̩̘̠̤̯̫̭͎͍̤̱̗͖͔͚̙̥̪̑̎͑̽̽͒̅̍͒͐̽͒͌̔́̓̽͑̒͋̋̅͌͊͌͛͂́̉̑̽͊̈͂͆̾͊́̾͗͛̆̑͌̀͗͋̈́̌̅̃̑͂̒͆̀̋̍̂͊̎͐̄̉͑͑̐͆̔͋̔̉͋́̈́̈̉̈̋̃̉̆̂̐͊͋͊̀͋̊̏̒̅͛̅͛́͊̓̐͑̃̇̓̏̈́̂̾̓͌̌̀̇̏̂̀͑̏̆̅͆̀́̾̃̊͐̑͛̇́̑̂̇͐̋̑̓̾̏͌̽̄̃̚̚̚̚̚ͅͅͅ
-			browserwindow.style.position = "absolute";
-			browserwindow.style.width = "100%";
-			browserwindow.style.height = "calc(100% - 27px)";
-			browserwindow.style.bottom = "0px";
-			browserwindow.style.borderWidth = "0px";
-			browserwindow.style.margin = "0px";
-			
-		fullScreenBtn.addEventListener("mouseover", function(){
-			fullScreenBtn.style.backgroundColor = "#0d009c";
-			fullScreenBtn.style.cursor = "pointer";
-		})
-		fullScreenBtn.addEventListener("mouseout", function(){
-			fullScreenBtn.style.backgroundColor = "#040042";
-			fullScreenBtn.style.cursor = "default";
-		})
 		
-			for(i=0; i<proxyTypes.length; i++){
-				let option = new Option(proxyTypes[i], proxyUrls[i]);
-				proxyPicker.appendChild(option);
-			}
-			proxybrowser.style.backgroundColor = "#292929";
-			urlbar.style.position = "absolute";
-			urlbar.style.top = "0px";
-			urlbar.placeholder = "https://example.com/ [Full URLS must be provided]";
-			urlbar.style.height = "25px";
-			urlbar.style.width = "calc(100% - 120px)";
-			urlbar.style.backgroundColor = "#040042";
-			urlbar.style.borderColor = "white";
-			urlbar.style.borderWidth = "2px";
-			urlbar.style.color = "white";
-			urlbar.style.borderStyle = "none none solid none";
-		
-			urlbar.addEventListener("keydown", function(e){
-				if(e.key === "Enter"){
-					urlbar.placeholder = urlbar.value;
-					if(proxyPicker.value === "https://krono-alloy-proxy.herokuapp.com/session/?url="){
-						urlbar.value = btoa(urlbar.value);
-					}
-					browserwindow.src = proxyPicker.value + urlbar.value;
-					urlbar.value = "";
-				  
-				}
-			})
-			fullScreenBtn.addEventListener("click", function(){
-				error("Fullscreen is not currently implemented, and is planned for a future update. This window can be resized, though!");
-			})
-		
-		}
-		*/
 
 		
 		
@@ -1620,7 +1248,7 @@ refreshStyleSheet();
 
 		// create icons
 		createNewItem(Injector.clientconfig.brand, "chlogApp", "changelog_app()", Injector.user.icons.Logo);
-		createNewItem("Exploit Hub", "exploithubApp", "exploithub_app()", Injector.user.icons.ExpHub); //https://www.flaticon.com/free-icon/console_1374723
+		createNewItem("Exploit Hub", "exploithubApp", loadTXT('/apps/exploithub.js'), Injector.user.icons.ExpHub); //https://www.flaticon.com/free-icon/console_1374723
 		createNewItem("Chatbox", "chatApp2", loadTXT('/apps/chatroom.js'), Injector.user.icons.Chat); //https://www.flaticon.com/free-icon/chat_724715
 	    createNewItem("ProxBrowser", "exploithubApp", "proxbrowser()", Injector.user.icons.ProxB);//https://www.flaticon.com/free-icon/web-search-engine_3003511
 		createNewItem("App Store", "exploithubApp", loadTXT('/apps/appStore.js'), Injector.user.icons.AppStore);
@@ -1887,19 +1515,16 @@ refreshStyleSheet();
 		
 
 		
-    openWindow(500, 300, "Ignore", resizable = "off", Injector.serverURL + "/adalert", "javascript: void(0);" ,true);
+    //openWindow(500, 300, "Ignore", resizable = "off", Injector.serverURL + "/adalert", "javascript: void(0);" ,true);
 		
 		
 	//	updateCustomApps();
 		setTimeout(() => { 
 			advertise() 
-			//openWindow(300, 300, "ANNOUNCEMENT", resizable = "off", Injector.user.icons.Logo);
-			//ad.innerHTML = `<h1>This Project is no longer as actively maintained.</h1>`;
-			// sounds about right
 		}, 1000);
 		//snowfetch();
 		setTimeout(updateBG(),1500);
-		var setBG = setInterval(		 (function(){
+		var setBG = setInterval((function(){
 			updateBG();
 		}),5000);
 		function ondocload() {

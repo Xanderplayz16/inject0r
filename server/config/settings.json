@@ -4,7 +4,7 @@
 		"message_size_limit": 500,
 		"file": "./server/data/chatroom/chatroom2.json",
 		"admins": [],
-    "bannedUsers": []
+    	"bannedUsers": []
 	},
 	"banksystem": {
 		"max_withdraw": "10000",
@@ -13,5 +13,8 @@
 		"premium": "guest",
 		"admins": ["guest"],
 		"banned": "paragram"		
+	},
+	"http": {
+		"port": 8080
 	}
 }

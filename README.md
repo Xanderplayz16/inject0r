@@ -8,7 +8,7 @@ The official repository for OpenInject0r
 
 #### What is OpenInjector? 
 
-OpenInject0r is the fork of the dead Inject0r (platinome fork) to remove features that harm self-hosting, update broken features, make it look better, get rid of sloppy code, and make it more dynamic.
+OpenInject0r is a fork of the dead Platinome fork of Inject0r to remove features that harm self-hosting (I'm looking at you, paragram), update broken features, make it look better, get rid of sloppy code, and make it more dynamic.
 
 #### Want to try?
 
