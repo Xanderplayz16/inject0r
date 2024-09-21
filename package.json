@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "unbuild": "rm -rf node_modules || rd /s /q node_modules && rm package-lock.json || echo '--------------.Done.-----------------'",
-    "build": "npm run unbuild || bun run unbuild && npm install || bun install",
-    "start": "bun run index.js || node index.js"
+    "start": "bun run index.js || node index.js",
+    "bundle": "bun run scripts/bundle.js"
   },
   "keywords": [],
   "author": "paragram",

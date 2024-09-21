@@ -2107,3 +2107,64 @@
 [Sat, 21 Sep 2024 15:59:02 GMT] OpenInject0r is up at http://127.0.0.1:8080
 [Sat, 21 Sep 2024 16:00:54 GMT] OpenInject0r is up at http://127.0.0.1:8080
 [Sat, 21 Sep 2024 16:31:56 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 16:32:50 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 16:36:42 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 16:37:02 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 16:37:19 GMT] Recieved login request from guest
+[Sat, 21 Sep 2024 16:37:20 GMT] Credentials for guest correct
+[Sat, 21 Sep 2024 16:37:20 GMT] Requesting bookmarklet content for guest
+[Sat, 21 Sep 2024 16:37:20 GMT] Recieved FTSave request from guest
+[Sat, 21 Sep 2024 16:37:20 GMT] Request recieved to Appstore
+[Sat, 21 Sep 2024 16:37:20 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Sat, 21 Sep 2024 16:37:20 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Sat, 21 Sep 2024 16:37:20 GMT] Same Copy detected!
+[Sat, 21 Sep 2024 16:37:25 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 16:38:03 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 16:38:11 GMT] Recieved login request from guest
+[Sat, 21 Sep 2024 16:38:11 GMT] Credentials for guest correct
+[Sat, 21 Sep 2024 16:38:11 GMT] Requesting bookmarklet content for guest
+[Sat, 21 Sep 2024 16:38:12 GMT] Client requested a nonexistant URL, or an error occured. Error: ReferenceError: Can't find variable: log
+[Sat, 21 Sep 2024 16:38:12 GMT] Recieved FTSave request from guest
+[Sat, 21 Sep 2024 16:38:12 GMT] Request recieved to Appstore
+[Sat, 21 Sep 2024 16:38:12 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Sat, 21 Sep 2024 16:38:12 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Sat, 21 Sep 2024 16:38:12 GMT] Request was invalid: ReferenceError: Can't find variable: i
+[Sat, 21 Sep 2024 16:38:17 GMT] Client requested a nonexistant URL, or an error occured. Error: ReferenceError: Can't find variable: log
+[Sat, 21 Sep 2024 16:38:22 GMT] Client requested a nonexistant URL, or an error occured. Error: ReferenceError: Can't find variable: log
+[Sat, 21 Sep 2024 16:38:27 GMT] Client requested a nonexistant URL, or an error occured. Error: ReferenceError: Can't find variable: log
+[Sat, 21 Sep 2024 16:41:37 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 16:41:42 GMT] Cloud request recieved!
+[Sat, 21 Sep 2024 16:41:42 GMT] POST request to Injector Cloud detected
+[Sat, 21 Sep 2024 16:41:42 GMT] Recieved login request from guest
+[Sat, 21 Sep 2024 16:41:42 GMT] Credentials for guest correct
+[Sat, 21 Sep 2024 16:41:42 GMT] Requesting bookmarklet content for guest
+[Sat, 21 Sep 2024 16:41:43 GMT] Cloud request recieved!
+[Sat, 21 Sep 2024 16:41:43 GMT] POST request to Injector Cloud detected
+[Sat, 21 Sep 2024 16:41:43 GMT] Recieved FTSave request from guest
+[Sat, 21 Sep 2024 16:41:43 GMT] Request recieved to Appstore
+[Sat, 21 Sep 2024 16:41:43 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Sat, 21 Sep 2024 16:41:43 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Sat, 21 Sep 2024 16:41:43 GMT] Request was invalid: ReferenceError: Can't find variable: i
+[Sat, 21 Sep 2024 16:41:48 GMT] Cloud request recieved!
+[Sat, 21 Sep 2024 16:41:48 GMT] POST request to Injector Cloud detected
+[Sat, 21 Sep 2024 16:41:53 GMT] Cloud request recieved!
+[Sat, 21 Sep 2024 16:41:53 GMT] POST request to Injector Cloud detected
+[Sat, 21 Sep 2024 16:41:58 GMT] Cloud request recieved!
+[Sat, 21 Sep 2024 16:41:58 GMT] POST request to Injector Cloud detected
+[Sat, 21 Sep 2024 16:42:03 GMT] Cloud request recieved!
+[Sat, 21 Sep 2024 16:42:03 GMT] POST request to Injector Cloud detected
+[Sat, 21 Sep 2024 16:42:08 GMT] Cloud request recieved!
+[Sat, 21 Sep 2024 16:42:08 GMT] POST request to Injector Cloud detected
+[Sat, 21 Sep 2024 16:42:11 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Sat, 21 Sep 2024 16:42:12 GMT] Recieved login request from guest
+[Sat, 21 Sep 2024 16:42:12 GMT] Credentials for guest correct
+[Sat, 21 Sep 2024 16:42:12 GMT] Requesting bookmarklet content for guest
+[Sat, 21 Sep 2024 16:42:13 GMT] Cloud request recieved!
+[Sat, 21 Sep 2024 16:42:13 GMT] POST request to Injector Cloud detected
+[Sat, 21 Sep 2024 16:42:13 GMT] Recieved FTSave request from guest
+[Sat, 21 Sep 2024 16:42:13 GMT] Request recieved to Appstore
+[Sat, 21 Sep 2024 16:42:13 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Sat, 21 Sep 2024 16:42:13 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Sat, 21 Sep 2024 16:42:13 GMT] Same Copy detected!
+[Sat, 21 Sep 2024 16:42:18 GMT] Cloud request recieved!
+[Sat, 21 Sep 2024 16:42:18 GMT] POST request to Injector Cloud detected

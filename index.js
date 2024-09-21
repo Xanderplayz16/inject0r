@@ -581,7 +581,7 @@ function requestListener(req, res) {
 										}
 										let appsINJS = new Array;
 										appsINJS = parsedFile[user2].apps;
-										for (i = 0; i < appsINJS.length; i++) {
+										for (let i = 0; i < appsINJS.length; i++) {
 											if (appsINJS[i] == __Data) {
                         						writeLine("Same Copy detected!")
 												sameCopy = true;
@@ -817,10 +817,7 @@ function requestListener(req, res) {
 
 			//cloud data
 			case "/cloud":
-				if (req.headers.nolog) {log = false} else {
-					log = true;
-				}
-				if (log) {writeLine("Cloud request recieved!")}
+				writeLine("Cloud request recieved!")
 				let clToken = req.headers.token;
 				if (!(Tokens.hasOwnProperty(clToken))) {
 					res.writeHead('403', 'Unauthorized');
@@ -836,7 +833,7 @@ function requestListener(req, res) {
 				} catch (err) { }
 				if (req.method.toLowerCase() == "get") {
 					if (fs.existsSync('./server/inCloud/users/' + clName)) {
-						if(log){writeLine("GET request to Injector Cloud detected.")}
+						writeLine("GET request to Injector Cloud detected.")
 						let responseFileArray = {}
 						res.writeHead("200", "0K");
 						let userFiles = (fs.readdirSync('./server/inCloud/users/' + clName));
@@ -855,10 +852,10 @@ function requestListener(req, res) {
               "directory_size":0,
               "size_limit":1024
             }`);
-            			if(log){writeLine("GET request to Injector Cloud detected, no user existing!")}
+            			writeLine("GET request to Injector Cloud detected, no user existing!")
 					}
 				} else if (req.method.toLowerCase() == "post") {
-          			if (log) {writeLine("POST request to Injector Cloud detected")}
+          			writeLine("POST request to Injector Cloud detected")
 					let cldata = "";
 					req.on("data", chunk => cldata += chunk.toString())
 						.on('end', function () {
@@ -1006,7 +1003,7 @@ function requestListener(req, res) {
 
 	} catch (err) {
 		res.end();
-    writeLine("Client requested a nonexistant URL, or an error occured. Error: " + err)
+    	writeLine("Client requested a nonexistant URL, or an error occured. Error: " + err)
 	}
 	res.writeHead(200, {
 		'Content-Type': 'text/html',
@@ -1032,7 +1029,7 @@ function requestListener(req, res) {
 
   setInterval(function(){
     let updChat = JSON.parse(fs.readFileSync('server/data/chatroom/chatroom2.json', 'utf8'));
-    for(i=0; i<updChat["statuses"].length; i++){
+    for(let i=0; i<updChat["statuses"].length; i++){
       let array = updChat.statuses[i]
       if((array[1] - (new Date().getTime()) / 1000) <= -30) {
  		console.log(updChat["statuses"].splice(updChat["statuses"].indexOf(array), 1))
