@@ -1,0 +1,26 @@
+name: Build executable
+on:
+ - push
+ - workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Build
+        run: bun build ./index.js --compile --outfile inject0r
+      - name: Bundle
+        run: |
+          mkdir dist
+          cp inject0r dist
+          cp -r server dist
+          cp -r public dist
+        shell: bash
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-ubuntu
+          path: dist
