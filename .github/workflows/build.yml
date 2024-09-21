@@ -2,9 +2,13 @@ name: Build executable
 on:
  - push
  - workflow_dispatch
+ - pull_request
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-20.04]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -24,5 +28,5 @@ jobs:
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4
         with:
-          name: artifact-ubuntu
+          name: artifact-${{ matrix.os }}
           path: dist
