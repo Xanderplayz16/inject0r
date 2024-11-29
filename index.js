@@ -49,8 +49,6 @@ try {
 		consoleUI(user + " Data", "Purged", user + " data cleaned by server")
 	}
 	delclouddata("guest")
-	https.get('https://eaglercraft.inject0r.repl.co/')
-	consoleUI("eaglercraft", "pinged", "server up")
 
 //catch booting errors ig
 } catch(err) {
@@ -67,11 +65,6 @@ if (!fs.existsSync('./server/inCloud')) {
 var Tokens = require("./server/data/authtokens.json");
 var ChatroomFileSize = fs.statSync(Settings.chatroom.file).size;
 let chatnum = 1;
-/**
- * @param {import("http").IncomingMessage} req 
- * @param {import("http").ServerResponse} res
- */
-
 function requestListener(req, res) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	// declare CORS policies and type of data
@@ -362,8 +355,8 @@ function requestListener(req, res) {
 					data += chunk.toString();
 				}).on('end', () => {
 					if (!data.includes(":")) {
-						res.writeHead(404, "Bad Credentials"); // PARAGRAM 400 ISN'T WHAT YOU USE HERE
-						res.write("invalid cred");
+						res.writeHead(400, "Malformed request");
+						res.write("Hey bot developers: You have to provide credentials in the form of username:password.");
 						res.end();
 						return;
 					}
@@ -683,11 +676,11 @@ function requestListener(req, res) {
 						})
 				}
 				return;
-			case "/chat2":
+			case "/chat/dm":
 				let tokenChat = req.headers.token;
 				if (!(Tokens.hasOwnProperty(tokenChat)) || Settings.chatroom["bannedUsers"].includes(Tokens[tokenChat]) && !(tokenChat == 'discord-user')) {
 					res.writeHead('403', 'Unauthorized');
-					res.write(`{"#general":{"contentOfChat":[["[SERVER]", 1, "you have been BANNED"],["[SERVER]", 2, "If you are a guest, this is because guest users are not allowed on the chatbox, and you need to register an account"]]},"statuses":[]} `)
+					res.write(`{"#general":{"contentOfChat":[["[SERVER]", 1, "you have been BANNED"],["[SERVER]", 2, "If you are a guest, this is because guest users are not allowed on the chatbox, and you need to register an account"]]},"statuses":[]} `) // TODO: make this customizable and not just a hard-coded string
 					res.end();
 					return;
 				}
@@ -808,10 +801,6 @@ function requestListener(req, res) {
 						res.end();
 					}
 				}
-
-        
-
-
 				return;
 
 
@@ -996,7 +985,7 @@ function requestListener(req, res) {
 			case "/userlist":
 				let auths = JSON.parse(fs.readFileSync('server/data/auths.json', 'utf8'));
 				res.writeHead(200, "OK")
-				res.write((Object.keys(auths)).toString() + ",iNJR");
+				res.write((Object.keys(auths)).toString() + ",iNJR"); // TODO: find out who iNJR is
 				res.end();
 				return;
 		};

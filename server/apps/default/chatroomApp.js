@@ -3,7 +3,7 @@ let latestMsgs = [];
 let chatSettings = {
     spamLength: 5
 }
-let chatBlacklist = ['nigga','nigge','gay ass','dick','penis','blacklistTest','blacklist Test'];
+let chatBlacklist = ['nigga','nigge','gay ass','dick','penis']; // TODO: make blacklist server-side
 function inBlacklist(item) {
     item = item.toLowerCase();
     for (i=0;i<chatBlacklist.length;i++) {
@@ -15,7 +15,7 @@ function inBlacklist(item) {
     return false;
 }
 async function sendDM(user, content) {
-    let req = await fetch(`${Injector.serverURL}/chat2`, {
+    let req = await fetch(`${Injector.serverURL}/chat/dm`, {
         method: 'POST',
         headers: {
             'token': Injector.user.token,
@@ -27,7 +27,7 @@ async function sendDM(user, content) {
     return await req.text();
 }
 async function makeDMFetch(user) {
-    let req = await fetch(`${Injector.serverURL}/chat2`, {
+    let req = await fetch(`${Injector.serverURL}/chat/dm`, {
         method: 'GET',
         headers: {
             'token': Injector.user.token,
@@ -262,7 +262,7 @@ newChannel("#requests", false);
 newChannel("#questions", false);
 newChannel("#fart-channel", false);
 
-function sendMessage(username,content,channel) {} // ...
+function sendMessage(username,content,channel) {} // change me if you want to add a hook for sending messages
 
 function newMessage(name, date, content, textColor) {
     if (!(timeExistings.includes(date))) {
@@ -320,7 +320,7 @@ let loadingLine = newOnlineUser("Loading...");
 let onClientArray = [loadingLine];
 function makeChatFetch() {
     let chatFetch = new XMLHttpRequest;
-    chatFetch.open('GET', Injector.serverURL + '/chat2');
+    chatFetch.open('GET', Injector.serverURL + '/chat/dm');
     chatFetch.setRequestHeader('token', Injector.user.token);
     chatFetch.send();
     chatFetch.onreadystatechange = e => {
@@ -328,7 +328,7 @@ function makeChatFetch() {
             try {
                 let chatFileParsed = JSON.parse(chatFetch.responseText);
                 if (chatFileParsed[currentChannel].important !== undefined) {
-                    realMsgInput.placeholder = "Important channel - cannot send messages"
+                    realMsgInput.placeholder = Injector.appconfig.chatbox.important_msg
                 } else {
                     realMsgInput.placeholder = ""
                 }
@@ -346,7 +346,7 @@ function makeChatFetch() {
 makeChatFetch();
 function statusUpdate() {
     let statusupdater = new XMLHttpRequest;
-    statusupdater.open('POST', Injector.serverURL + '/chat2');
+    statusupdater.open('POST', Injector.serverURL + '/chat/dm');
     statusupdater.setRequestHeader('token', Injector.user.token);
     statusupdater.send("fromStatusUpdate");
     statusupdater.onreadystatechange = e => {
@@ -384,7 +384,7 @@ realMsgInput.addEventListener("keydown", function(e) {
             makeChatFetch();
             if (realMsgInput.value.length < 500 && realMsgInput.value.length > 0 && !latestMsgs.includes(realMsgInput.value) && !inBlacklist(realMsgInput.value)) {
                 let chatsend = new XMLHttpRequest;
-                chatsend.open('POST', Injector.serverURL + '/chat2');
+                chatsend.open('POST', Injector.serverURL + '/chat/dm');
                 chatsend.setRequestHeader('channel', currentChannel);
                 chatsend.setRequestHeader('token', Injector.user.token);
                 chatsend.send(realMsgInput.value);

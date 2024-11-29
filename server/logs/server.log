@@ -2169,3 +2169,189 @@
 [Sat, 21 Sep 2024 16:42:18 GMT] Cloud request recieved!
 [Sat, 21 Sep 2024 16:42:18 GMT] POST request to Injector Cloud detected
 [Sat, 21 Sep 2024 18:24:40 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Mon, 30 Sep 2024 19:47:04 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Mon, 30 Sep 2024 20:16:48 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Mon, 30 Sep 2024 20:17:18 GMT] Recieved login request from guest
+[Mon, 30 Sep 2024 20:17:18 GMT] Credentials for guest correct
+[Mon, 30 Sep 2024 20:17:18 GMT] Requesting bookmarklet content for guest
+[Mon, 30 Sep 2024 20:17:19 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:17:19 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:17:19 GMT] Recieved FTSave request from guest
+[Mon, 30 Sep 2024 20:17:19 GMT] Request recieved to Appstore
+[Mon, 30 Sep 2024 20:17:19 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Mon, 30 Sep 2024 20:17:19 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Mon, 30 Sep 2024 20:17:19 GMT] Same Copy detected!
+[Mon, 30 Sep 2024 20:17:24 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:17:24 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:17:29 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:17:29 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:17:34 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:17:34 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:17:39 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:17:39 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:17:39 GMT] Request recieved to Appstore
+[Mon, 30 Sep 2024 20:17:39 GMT] Attemping to read contents of ./server/apps/Game Hub.js
+[Mon, 30 Sep 2024 20:17:39 GMT] Wrote app contents of ./server/apps/Game Hub to client guest
+[Mon, 30 Sep 2024 20:17:44 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:17:44 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:17:49 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:17:49 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:17:54 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:17:54 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:17:59 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:17:59 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:04 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:04 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:09 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:09 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:14 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:14 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:19 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:19 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:24 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:24 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:29 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:29 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:34 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:34 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:39 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:39 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:44 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:44 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:49 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:49 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:54 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:54 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:18:59 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:18:59 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:04 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:04 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:09 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:09 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:14 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:14 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:19 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:19 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:24 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:24 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:29 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:29 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:34 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:34 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:39 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:39 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:44 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:44 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:49 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:49 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:54 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:54 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:19:59 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:19:59 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:20:04 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:20:04 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:20:09 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:20:09 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:20:14 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:20:14 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:20:19 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:20:19 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:20:24 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:20:24 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:20:29 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:20:29 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:20:34 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:20:34 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:20:39 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:20:39 GMT] POST request to Injector Cloud detected
+[Mon, 30 Sep 2024 20:20:44 GMT] Cloud request recieved!
+[Mon, 30 Sep 2024 20:20:44 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:02:28 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Fri, 29 Nov 2024 15:02:28 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Fri, 29 Nov 2024 15:23:37 GMT] OpenInject0r is up at http://127.0.0.1:8080
+[Fri, 29 Nov 2024 15:23:47 GMT] Recieved login request from guest
+[Fri, 29 Nov 2024 15:23:47 GMT] Credentials for guest correct
+[Fri, 29 Nov 2024 15:23:47 GMT] Requesting bookmarklet content for guest
+[Fri, 29 Nov 2024 15:23:48 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:23:48 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:23:48 GMT] Recieved FTSave request from guest
+[Fri, 29 Nov 2024 15:23:48 GMT] Request recieved to Appstore
+[Fri, 29 Nov 2024 15:23:48 GMT] Attemping to read contents of ./server/apps/Segfault.js
+[Fri, 29 Nov 2024 15:23:48 GMT] Wrote app contents of ./server/apps/Segfault to client guest
+[Fri, 29 Nov 2024 15:23:48 GMT] Same Copy detected!
+[Fri, 29 Nov 2024 15:23:48 GMT] Request recieved to Appstore
+[Fri, 29 Nov 2024 15:23:48 GMT] Attemping to read contents of ./server/apps/Game Hub.js
+[Fri, 29 Nov 2024 15:23:48 GMT] Wrote app contents of ./server/apps/Game Hub to client guest
+[Fri, 29 Nov 2024 15:23:48 GMT] Same Copy detected!
+[Fri, 29 Nov 2024 15:23:53 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:23:53 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:23:58 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:23:58 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:03 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:03 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:09 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:09 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:14 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:14 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:19 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:19 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:24 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:24 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:29 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:29 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:34 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:34 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:39 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:39 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:44 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:44 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:49 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:49 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:54 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:54 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:24:59 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:24:59 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:04 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:04 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:09 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:09 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:14 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:14 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:19 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:19 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:24 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:24 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:29 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:29 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:34 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:34 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:39 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:39 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:44 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:44 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:49 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:49 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:54 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:54 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:25:59 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:25:59 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:26:04 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:26:04 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:26:09 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:26:09 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:26:14 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:26:14 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:26:19 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:26:19 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:26:24 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:26:24 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:26:29 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:26:29 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:26:34 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:26:34 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:26:40 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:26:40 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:26:45 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:26:45 GMT] POST request to Injector Cloud detected
+[Fri, 29 Nov 2024 15:26:50 GMT] Cloud request recieved!
+[Fri, 29 Nov 2024 15:26:50 GMT] POST request to Injector Cloud detected
